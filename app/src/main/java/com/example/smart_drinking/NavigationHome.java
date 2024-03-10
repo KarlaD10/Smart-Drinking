@@ -1,17 +1,14 @@
 package com.example.smart_drinking;
 
 import android.os.Bundle;
-import android.widget.AdapterView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.smart_drinking.ui.HistoricFragment;
+import com.example.smart_drinking.ui.Historic.HistoricFragment;
+import com.example.smart_drinking.ui.Home.HomeFragment;
+import com.example.smart_drinking.ui.Settings.SettingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class NavigationHome extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
