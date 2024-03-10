@@ -1,4 +1,4 @@
-package com.example.smart_drinking.ui;
+package com.example.smart_drinking.ui.Settings;
 
 import android.os.Bundle;
 
@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 import com.example.smart_drinking.R;
 
 
-public class HistoricFragment extends Fragment {
+public class SettingFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_historic, container, false);
+        return inflater.inflate(R.layout.fragment_setting, container, false);
     }
 }
