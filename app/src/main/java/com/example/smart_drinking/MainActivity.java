@@ -54,20 +54,7 @@ public class MainActivity extends AppCompatActivity {
         image.setAnimation(topAnim);
         logo.setAnimation(bottomAnim);
 
-        sharedPreferences = getSharedPreferences("mensajes", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(key1,uno);
-        editor.putString(key2,dos);
-        editor.putString(key3,tres);
-        editor.putString(key4,cuatro);
-        editor.putString(key5,cinco);
-        editor.putString(key6,seis);
-        editor.putString(key7,siete);
-        editor.putString(key8,ocho);
-        editor.putString(key9,nueve);
-        editor.putString(key10,diez);
-        editor.apply();
         Animation bottomAnim = AnimationUtils.loadAnimation(this, R.anim.botton_animation);
 
         // Asignar el AnimationListener a bottomAnim
@@ -80,6 +67,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 // Este código se ejecuta después de que la animación haya terminado
+                sharedPreferences = getSharedPreferences("mensajes", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putString(key1,uno);
+                editor.putString(key2,dos);
+                editor.putString(key3,tres);
+                editor.putString(key4,cuatro);
+                editor.putString(key5,cinco);
+                editor.putString(key6,seis);
+                editor.putString(key7,siete);
+                editor.putString(key8,ocho);
+                editor.putString(key9,nueve);
+                editor.putString(key10,diez);
+                editor.apply();
                 Intent intent = new Intent(MainActivity.this, NavigationHome.class);
                 startActivity(intent);
                 finish(); // Finaliza la actividad actual
