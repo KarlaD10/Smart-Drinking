@@ -1,5 +1,6 @@
 package com.example.smart_drinking.ui.Home;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,7 @@ import com.example.smart_drinking.R;
  */
 public class HomeFragment extends Fragment {
 
+    SharedPreferences sharedPreferences;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
