@@ -4,66 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.Home.HomeFragment">
 
-    <TextView
-        android:id="@+id/mensaje1"
-        android:layout_width="223dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="82dp"
-        android:layout_marginEnd="106dp"
-        android:text="Hola tonoto, vas muy bien tomando awa"
-        android:textAlignment="center"
-        android:textSize="25dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="37dp"
-        android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/mensaje1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_weight=".3"
+            android:text="Hola tonoto, vas muy bien tomando awa"
+            android:textSize="23sp" />
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:inputType="number" />
+        <cjh.WaveProgressBarlibrary.WaveProgressBar
+            android:id="@+id/waveprogressbar"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            app:behind_wave_color="#01A1D6"
+            app:front_wave_color="#9dd8ed"
+            app:text_color="@color/black"
+            app:arc_color="@color/textito"
+            app:cavans_bg="@color/botones"
+            app:text_size="50sp"
+            app:shape="circle"
+            app:progress="50"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="17dp"
-        android:layout_toEndOf="@+id/editTextNumber"
-        android:text="Button" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="163dp"
-        android:layout_height="251dp"
-        android:layout_above="@+id/editTextNumber"
-        android:layout_below="@+id/mensaje1"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="138dp"
-        android:layout_marginBottom="42dp"
-        android:src="@drawable/a" />
+        <LinearLayout
+            android:id="@+id/layout_registro"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_registro"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/ml"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/btn_registrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"
+                android:layout_marginStart="20dp"
+                android:text="@string/btn_add" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_weight=".3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </RelativeLayout>

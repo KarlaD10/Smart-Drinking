@@ -21,7 +21,7 @@ public class DataHelper extends SQLiteOpenHelper {
     private static final String COLUMN_DIA = "dia";
     private static final String COLUMN_HORA = "hora";
     private static final String COLUMN_MINUTO = "minuto";
-    public DataHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public DataHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -50,18 +50,14 @@ public class DataHelper extends SQLiteOpenHelper {
     }
 
 //    --------------- REGISTRO DE DATOS ---------------------------
-    public void addRegistros(String consumo){
+    public long addRegistros(String consumo){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cvR = new ContentValues();
 
         cvR.put(COLUMN_CONSUMO, consumo);
 
-        try{
-            db.insert(TABLE_REGISTROS, null, cvR);
-        }catch (Exception e){
-            System.out.println("Excepcion al añadir el registro: " + e);
-        }
-
+        long result = db.insert(TABLE_REGISTROS, null, cvR);
+        return result;
     }
 
 
