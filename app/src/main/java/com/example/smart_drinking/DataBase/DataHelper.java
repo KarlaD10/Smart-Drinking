@@ -89,11 +89,9 @@ public class DataHelper extends SQLiteOpenHelper {
 
     public int readProgreso(){
         SQLiteDatabase db = this.getReadableDatabase();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        String fechaActual = sdf.format(new Date());
         String aguaConsumida;
 
-        Cursor cursor = db.rawQuery("SELECT registros.agua_consumida AS ac FROM registros WHERE registros.fecha = ?", new String[] {fechaActual});
+        Cursor cursor = db.rawQuery("SELECT registros.agua_consumida AS ac FROM registros WHERE strftime('%d%m%Y', 'now', 'localtime')=strftime('%d%m%Y', registros.fecha)", null);
         try{
             if (cursor.moveToFirst()) {
                aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
