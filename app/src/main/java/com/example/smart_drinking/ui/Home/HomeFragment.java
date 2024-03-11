@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
             String text = sharedPreferences.getString(String.valueOf(key), null);
             mensaje1.setText(text); // Mostrar el mensaje obtenido en el TextView
         }
-        waveProgressBar.setProgress(102);
+        waveProgressBar.setProgress(90);
 //        Timer timer = new Timer();
 //        TimerTask timerTask = new TimerTask() {
 //            @Override

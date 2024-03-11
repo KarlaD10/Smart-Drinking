@@ -91,7 +91,7 @@ public class DataHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String aguaConsumida;
 
-        Cursor cursor = db.rawQuery("SELECT registros.agua_consumida AS ac FROM registros WHERE strftime('%d%m%Y', 'now', 'localtime')=strftime('%d%m%Y', registros.fecha)", null);
+        Cursor cursor = db.rawQuery("SELECT SUM(registros.agua_consumida) AS ac FROM registros WHERE strftime('%d%m%Y', 'now', 'localtime')=strftime('%d%m%Y', registros.fecha)", null);
         try{
             if (cursor.moveToFirst()) {
                aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
