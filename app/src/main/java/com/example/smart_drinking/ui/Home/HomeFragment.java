@@ -60,7 +60,10 @@ public class HomeFragment extends Fragment {
             String text = sharedPreferences.getString(String.valueOf(key), null);
             mensaje1.setText(text); // Mostrar el mensaje obtenido en el TextView
         }
-        waveProgressBar.setProgress(90);
+        int progeso =  db.readProgreso();
+        textoProgreso.setText(""+progeso);
+        int value = (int) ((progeso*100)/2000);
+        waveProgressBar.setProgress(value);
 //        Timer timer = new Timer();
 //        TimerTask timerTask = new TimerTask() {
 //            @Override
@@ -106,7 +109,10 @@ public class HomeFragment extends Fragment {
                         InputMethodManager imm = (InputMethodManager) (getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                         int progeso =  db.readProgreso();
+                        int value = (int) ((progeso*100)/2000);
                         textoProgreso.setText(""+progeso);
+                        Toast.makeText(getActivity(), "Registro exitoso"+(progeso*100)/2000, Toast.LENGTH_SHORT).show();
+                        waveProgressBar.setProgress(value);
                     }
                 }else {
                     Toast.makeText(getActivity(), "El dato no es válido. \n Ingresa un dato y vuelve a intentarlo.", Toast.LENGTH_SHORT).show();
@@ -114,8 +120,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        int progeso =  db.readProgreso();
-        textoProgreso.setText(""+progeso);
+
 
     }
 }

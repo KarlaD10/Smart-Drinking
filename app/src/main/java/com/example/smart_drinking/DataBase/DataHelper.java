@@ -37,7 +37,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        // ojo, no es eficiente aún la bd porque no están los tipos de datos que quiero para hacer uniregistro de día
         String CREATE_TABLE_REGISTROS =
                 "CREATE TABLE IF NOT EXISTS " + TABLE_REGISTROS +
                         "(" + COLUMN_FECHA + " NUMERIC NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')) PRIMARY KEY, " +
