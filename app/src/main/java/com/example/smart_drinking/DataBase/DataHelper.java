@@ -102,7 +102,13 @@ public class DataHelper extends SQLiteOpenHelper {
         }catch (Exception e){
             aguaConsumida = "-1";
         }
-        return Integer.parseInt(aguaConsumida);
+        // Intentar convertir la cadena a entero
+        try {
+            return Integer.parseInt(aguaConsumida);
+        } catch (NumberFormatException ex) {
+            ex.printStackTrace();
+            return -1; // Devolver un valor predeterminado en caso de error
+        }
     }
 
     public int readConsumoMes(String fecha) {
