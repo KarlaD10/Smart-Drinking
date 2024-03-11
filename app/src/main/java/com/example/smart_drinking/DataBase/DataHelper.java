@@ -2,10 +2,20 @@ package com.example.smart_drinking.DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 
 public class DataHelper extends SQLiteOpenHelper {
     private Context context;
@@ -75,6 +85,26 @@ public class DataHelper extends SQLiteOpenHelper {
             System.out.println("Excepcion al añadir el registro: " + e);
         }
 
+    }
+
+    public int readProgreso(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        String fechaActual = sdf.format(new Date());
+        String aguaConsumida;
+
+        Cursor cursor = db.rawQuery("SELECT registros.agua_consumida AS ac FROM registros WHERE registros.fecha = ?", new String[] {fechaActual});
+        try{
+            if (cursor.moveToFirst()) {
+               aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
+            } else {
+                aguaConsumida = "-1";
+            }
+            cursor.close();
+        }catch (Exception e){
+            aguaConsumida = "-1";
+        }
+        return Integer.parseInt(aguaConsumida);
     }
 
 }

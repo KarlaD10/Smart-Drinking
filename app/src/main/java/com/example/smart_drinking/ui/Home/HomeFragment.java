@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
     boolean started = false;
     Random randomNumbers = new Random();
 
-    TextView mensaje1;
+    TextView mensaje1, textoProgreso;
     WaveProgressBar waveProgressBar;
     EditText et_registro;
     Button btn_registrar;
@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
 
         db = new DataHelper(getActivity());
         mensaje1 = view.findViewById(R.id.mensaje1);
+        textoProgreso = view.findViewById(R.id.textoProgreso);
         waveProgressBar = view.findViewById(R.id.waveprogressbar);
         btn_registrar = view.findViewById(R.id.btn_registrar);
         et_registro = view.findViewById(R.id.et_registro);
@@ -59,7 +60,7 @@ public class HomeFragment extends Fragment {
             String text = sharedPreferences.getString(String.valueOf(key), null);
             mensaje1.setText(text); // Mostrar el mensaje obtenido en el TextView
         }
-        waveProgressBar.setProgress(50);
+        waveProgressBar.setProgress(102);
 //        Timer timer = new Timer();
 //        TimerTask timerTask = new TimerTask() {
 //            @Override
@@ -104,11 +105,17 @@ public class HomeFragment extends Fragment {
                         et_registro.setFocusable(false);
                         InputMethodManager imm = (InputMethodManager) (getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                        int progeso =  db.readProgreso();
+                        textoProgreso.setText(""+progeso);
                     }
                 }else {
                     Toast.makeText(getActivity(), "El dato no es válido. \n Ingresa un dato y vuelve a intentarlo.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        int progeso =  db.readProgreso();
+        textoProgreso.setText(""+progeso);
+
     }
 }

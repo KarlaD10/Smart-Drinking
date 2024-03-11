@@ -16,9 +16,9 @@
         <TextView
             android:id="@+id/mensaje1"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:layout_weight=".3"
             android:text="Hola tonoto, vas muy bien tomando awa"
             android:textSize="23sp" />
@@ -77,7 +77,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textoProgreso"
             android:layout_width="300dp"
             android:layout_weight=".3"
             android:layout_height="wrap_content"
