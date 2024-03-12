@@ -11,4 +11,5 @@
     <string name="dispositivos">Dispositivos disponibles</string>
     <string name="vibracion">Vibración</string>
     <string name="sonido">Sonido</string>
+    <string name="btn_hora">Registrar hora</string>
 </resources>
