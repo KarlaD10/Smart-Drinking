@@ -11,7 +11,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     //Variables for animation
     SharedPreferences sharedPreferences;
@@ -95,4 +99,5 @@ public class MainActivity extends AppCompatActivity {
         // Iniciar la animación
         slogan.setAnimation(bottomAnim);
     }
+
 }

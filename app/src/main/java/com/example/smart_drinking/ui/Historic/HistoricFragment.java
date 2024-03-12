@@ -48,9 +48,9 @@ public class HistoricFragment extends Fragment {
                 String formattedDate = String.format("%02d%02d%04d", day, month + 1, year);
                 int consumo = db.readConsumoDia(formattedDate);
                 if(consumo == -1){
-                    Toast.makeText(getActivity(), "Ups parece que no has tomado agua aun", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Ups parece que no has tomado agua aun", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo/1000 + " litros", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo/1000 + " litros", Toast.LENGTH_LONG).show();
                 }
             }
         });
