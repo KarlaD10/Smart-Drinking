@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -111,7 +112,30 @@ public class DataHelper extends SQLiteOpenHelper {
         }
     }
 
-    public int readConsumoMes(String fecha) {
+    public int readWeeklyIntake(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String aguaConsumida = "-1";
+        Calendar calendar = Calendar.getInstance();
+
+        // Formatea la fecha en el formato específico que deseas ("%02d%02d%04d")
+        // Nota que aquí usamos "ddMMyyyy" para lograr ese formato
+        SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+        String formattedDate = sdf.format(calendar.getTime());
+        try {
+            Cursor cursor = db.rawQuery("SELECT AVG(registros.agua_consumida) AS ac " +
+                    "FROM registros " +
+                    "WHERE fecha BETWEEN strftime('now', 'weekday 0', '-6 days') " +
+                    "AND strftime('now', 'weekday 0') ", null);
+            if (cursor.moveToFirst()) {
+                aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
+            }
+
+        }catch (Exception e){
+            return -1;
+        }
+        return Integer.parseInt(aguaConsumida);
+    }
+    public int readConsumoDia(String fecha) {
         SQLiteDatabase db = this.getReadableDatabase();
         String aguaConsumida = "-1"; // Inicializar con un valor por defecto
 

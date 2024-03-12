@@ -1,5 +1,6 @@
 package com.example.smart_drinking.ui.Historic;
-
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
@@ -38,18 +39,20 @@ public class HistoricFragment extends Fragment {
         db = new DataHelper(getActivity());
 
         calendarView = view.findViewById(R.id.calendarView);
-
+        tv_consumoMensual = view.findViewById(R.id.tv_consumoMensual);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
                 String formattedDate = String.format("%02d%02d%04d", day, month + 1, year);
-                int consumo = db.readConsumoMes(formattedDate);
+                int consumo = db.readConsumoDia(formattedDate);
                 if(consumo == -1){
-                    Toast.makeText(getActivity(), "Ups parece que no has tomado agua aun", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Ups parece que no has tomado agua aun", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo, Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //int progeso =  db.readWeeklyIntake();
+        //tv_consumoMensual.setText(""+progeso);
     }
 }

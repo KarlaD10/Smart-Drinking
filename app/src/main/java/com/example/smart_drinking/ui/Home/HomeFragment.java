@@ -41,11 +41,9 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         db = new DataHelper(getActivity());
         mensaje1 = view.findViewById(R.id.mensaje1);
         textoProgreso = view.findViewById(R.id.textoProgreso);
@@ -61,39 +59,11 @@ public class HomeFragment extends Fragment {
             mensaje1.setText(text); // Mostrar el mensaje obtenido en el TextView
         }
         int progeso =  db.readProgreso();
-        textoProgreso.setText(""+progeso);
+        String mensaje = (2 >= progeso/1000) ? "litros tomados" : "litro tomado";
+        textoProgreso.setText("Bien hecho, llevas "+progeso/1000 + mensaje);
+
         int value = (int) ((progeso*100)/2000);
         waveProgressBar.setProgress(value);
-//        Timer timer = new Timer();
-//        TimerTask timerTask = new TimerTask() {
-//            @Override
-//            public void run() {
-//                if (started) {
-//                    progress++;
-//                    progress++;
-//                    getActivity().runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            waveProgressBar.setProgress(progress);
-//                        }
-//                    });
-//
-//                    if (progress == 100) {
-//                        progress = 0;
-//                    }
-//                }
-//            }
-//        };
-//
-//        timer.schedule(timerTask, 0, 80);
-//
-//        waveProgressBar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                started = !started;
-//            }
-//        });
-
 
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,13 +75,14 @@ public class HomeFragment extends Fragment {
                     if(result != -1 ){
                         Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
                         et_registro.setText("");
-                        et_registro.setFocusable(false);
+
                         InputMethodManager imm = (InputMethodManager) (getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                         int progeso =  db.readProgreso();
                         int value = (int) ((progeso*100)/2000);
-                        textoProgreso.setText(""+progeso);
-                        Toast.makeText(getActivity(), "Registro exitoso"+(progeso*100)/2000, Toast.LENGTH_SHORT).show();
+                        String mensaje = (2 >= progeso/1000) ? "litros tomados" : "litro tomado";
+                        textoProgreso.setText("Bien hecho, llevas "+progeso/1000 + mensaje);
+
                         waveProgressBar.setProgress(value);
                     }
                 }else {
@@ -119,8 +90,5 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-
-
-
     }
 }
