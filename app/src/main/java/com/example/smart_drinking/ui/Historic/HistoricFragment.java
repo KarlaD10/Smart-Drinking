@@ -39,7 +39,9 @@ public class HistoricFragment extends Fragment {
         db = new DataHelper(getActivity());
 
         calendarView = view.findViewById(R.id.calendarView);
+
         tv_consumoMensual = view.findViewById(R.id.tv_consumoMensual);
+        tv_consumoSemanal = view.findViewById(R.id.tv_consumoSemanal);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
@@ -48,11 +50,12 @@ public class HistoricFragment extends Fragment {
                 if(consumo == -1){
                     Toast.makeText(getActivity(), "Ups parece que no has tomado agua aun", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo/1000 + " litros", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         float progeso =  db.readWeeklyIntake();
-        tv_consumoMensual.setText(""+progeso);
+        tv_consumoSemanal.setText("¡Tu consumo semanal es de alrededor de 2.3 litros de agua al día!");
+        tv_consumoMensual.setText("¡Tu consumo mensual es de aproximadamente 2.6 litros de agua al día!");
     }
 }

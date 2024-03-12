@@ -59,8 +59,8 @@ public class HomeFragment extends Fragment {
             mensaje1.setText(text); // Mostrar el mensaje obtenido en el TextView
         }
         int progeso =  db.readProgreso();
-        String mensaje = (2 >= progeso/1000) ? "litros tomados" : "litro tomado";
-        textoProgreso.setText("Bien hecho, llevas "+progeso/1000 + mensaje);
+        String mensaje = (2 >= progeso/1000) ? " litros tomados" : " litro tomado";
+        textoProgreso.setText("Bien hecho, llevas "+(float) progeso/1000 + mensaje);
 
         int value = (int) ((progeso*100)/2000);
         waveProgressBar.setProgress(value);
@@ -80,8 +80,8 @@ public class HomeFragment extends Fragment {
                         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                         int progeso =  db.readProgreso();
                         int value = (int) ((progeso*100)/2000);
-                        String mensaje = (2 >= progeso/1000) ? "litros tomados" : "litro tomado";
-                        textoProgreso.setText("Bien hecho, llevas "+progeso/1000 + mensaje);
+                        String mensaje = (2 >= progeso/1000) ? " litros tomados" : " litro tomado";
+                        textoProgreso.setText("Bien hecho, llevas "+(float)progeso/1000 + mensaje);
 
                         waveProgressBar.setProgress(value);
                     }

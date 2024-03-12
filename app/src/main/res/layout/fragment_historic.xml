@@ -21,11 +21,12 @@
 
         <TextView
             android:id="@+id/tv_consumoMensual"
-            android:layout_width="360dp"
+            android:layout_width="343dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:text="HOLA TONOTO, AQUI VA TU RESUMEN MENSUAL"
+            android:textAlignment="center"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -35,8 +36,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="190dp"
+                android:layout_width="156dp"
+                android:layout_height="202dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="40dp"
                 android:src="@drawable/a" />
@@ -45,9 +46,11 @@
                 android:id="@+id/tv_consumoSemanal"
                 android:layout_width="150dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="40dp"
                 android:layout_gravity="center"
-                android:text="hola tonoto, aqui va el resumen mensual de tu awa" />
+                android:layout_marginStart="40dp"
+                android:text="hola tonoto, aqui va el resumen mensual de tu awa"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
