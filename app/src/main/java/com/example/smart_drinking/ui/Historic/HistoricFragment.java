@@ -52,7 +52,7 @@ public class HistoricFragment extends Fragment {
                 }
             }
         });
-        //int progeso =  db.readWeeklyIntake();
-        //tv_consumoMensual.setText(""+progeso);
+        float progeso =  db.readWeeklyIntake();
+        tv_consumoMensual.setText(""+progeso);
     }
 }

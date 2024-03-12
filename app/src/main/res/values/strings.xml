@@ -8,4 +8,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_add">+</string>
     <string name="ml">ml.</string>
+    <string name="dispositivos">Dispositivos disponibles</string>
+    <string name="vibracion">Vibración</string>
+    <string name="sonido">Sonido</string>
 </resources>

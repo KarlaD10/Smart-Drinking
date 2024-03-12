@@ -112,7 +112,7 @@ public class DataHelper extends SQLiteOpenHelper {
         }
     }
 
-    public int readWeeklyIntake(){
+    public float readWeeklyIntake(){
         SQLiteDatabase db = this.getReadableDatabase();
         String aguaConsumida = "-1";
         Calendar calendar = Calendar.getInstance();
@@ -124,8 +124,8 @@ public class DataHelper extends SQLiteOpenHelper {
         try {
             Cursor cursor = db.rawQuery("SELECT AVG(registros.agua_consumida) AS ac " +
                     "FROM registros " +
-                    "WHERE fecha BETWEEN strftime('now', 'weekday 0', '-6 days') " +
-                    "AND strftime('now', 'weekday 0') ", null);
+                    "WHERE registros.fecha BETWEEN strftime('%Y-%m-%d', 'now', 'weekday 0', '-6 days') " +
+                    "    AND strftime('%Y-%m-%d', 'now', 'weekday 0');", null);
             if (cursor.moveToFirst()) {
                 aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
             }
@@ -133,7 +133,7 @@ public class DataHelper extends SQLiteOpenHelper {
         }catch (Exception e){
             return -1;
         }
-        return Integer.parseInt(aguaConsumida);
+        return Float.parseFloat(aguaConsumida);
     }
     public int readConsumoDia(String fecha) {
         SQLiteDatabase db = this.getReadableDatabase();
