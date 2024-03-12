@@ -3,6 +3,7 @@ package com.example.smart_drinking;
 public class RemindersModel {
     String dia, hora, horario;
     int img;
+    //ha
 
     public RemindersModel(String dia, String hora, String horario, int img) {
         this.dia = dia;

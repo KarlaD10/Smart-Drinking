@@ -30,7 +30,7 @@ public class RM_RecyclerViewAdapter extends RecyclerView.Adapter<RM_RecyclerView
         View view = inflater.inflate(R.layout.recycler_view_row, parent,false);
         return new RM_RecyclerViewAdapter.MyViewHolder(view);
     }
-
+//hola
     @Override
     public void onBindViewHolder(@NonNull RM_RecyclerViewAdapter.MyViewHolder holder, int position) {
 

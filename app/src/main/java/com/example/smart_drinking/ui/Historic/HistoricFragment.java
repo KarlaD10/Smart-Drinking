@@ -54,6 +54,7 @@ public class HistoricFragment extends Fragment {
                 }
             }
         });
+        //ggg
         float progeso =  db.readWeeklyIntake();
         tv_consumoSemanal.setText("¡Tu consumo semanal es de alrededor de 2.3 litros de agua al día!");
         tv_consumoMensual.setText("¡Tu consumo mensual es de aproximadamente 2.6 litros de agua al día!");

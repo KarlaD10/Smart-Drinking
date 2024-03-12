@@ -1,7 +1,7 @@
 package com.example.smart_drinking.ui.Settings;
 
 import android.os.Bundle;
-
+//a
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
