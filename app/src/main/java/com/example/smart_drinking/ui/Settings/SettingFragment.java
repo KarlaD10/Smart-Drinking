@@ -45,7 +45,7 @@ public class SettingFragment extends Fragment {
 
 
         sharedPreferences = getActivity().getSharedPreferences("notificaciones", getActivity().MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+
         swt_sonido.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
