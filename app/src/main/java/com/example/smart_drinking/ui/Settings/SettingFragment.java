@@ -31,7 +31,7 @@ public class SettingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         swt_sonido = view.findViewById(R.id.swt_sonido);
-        swt_vibracion = view.findViewById(R.id.swt_vibración);
+        swt_vibracion = view.findViewById(R.id.swt_vibracion);
         // Now you can find your RecyclerView in this view
         RecyclerView myRecyclerView = view.findViewById(R.id.myRecyclerView);
         setUpReminderModels();
