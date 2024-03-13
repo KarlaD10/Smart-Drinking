@@ -51,7 +51,6 @@
                 android:textSize="15sp"/>
 
             <Switch
-                android:id="@+id/swt_vibración"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -72,7 +71,6 @@
                 android:textSize="15sp"/>
 
             <Switch
-                android:id="@+id/swt_sonido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -131,70 +129,11 @@
 
         </LinearLayout>
 
-        <!-- empty space -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <!--  section 1-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="6dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selecciona una hora"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <NumberPicker
-                android:id="@+id/numPickerH"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <NumberPicker
-                android:id="@+id/numPickerM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:divider="#ebebeb" />
-
-            <NumberPicker
-                android:id="@+id/numPickerAm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:text="@string/btn_hora"
-            android:textColor="@color/textito"
-            android:textSize="18sp"
-            android:background="@drawable/botones"/>
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="333dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="100dp" />
 
         <Button
             android:id="@+id/button"
