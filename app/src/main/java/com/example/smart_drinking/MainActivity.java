@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smart_drinking.Notificaciones.MyBackgroundService;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         Animation bottomAnim = AnimationUtils.loadAnimation(this, R.anim.botton_animation);
+
+
 
         // Asignar el AnimationListener a bottomAnim
         bottomAnim.setAnimationListener(new Animation.AnimationListener() {

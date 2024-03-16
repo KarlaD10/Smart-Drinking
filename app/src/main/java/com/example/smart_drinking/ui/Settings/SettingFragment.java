@@ -44,6 +44,7 @@ public class SettingFragment extends Fragment {
     NumberPicker numPickerH, numPickerM;
     MediaPlayer mp;
     DataHelper db;
+    RM_RecyclerViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,7 +115,7 @@ public class SettingFragment extends Fragment {
             }
         });
         // Set up the RecyclerView adapter and layout manager
-        RM_RecyclerViewAdapter adapter = new RM_RecyclerViewAdapter(getContext(), reminderModels); // Change 'this' to 'getContext()'
+        adapter = new RM_RecyclerViewAdapter(getContext(), reminderModels); // Change 'this' to 'getContext()'
         myRecyclerView.setAdapter(adapter);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext())); // Change 'this' to 'getContext()
 
