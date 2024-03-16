@@ -1,6 +1,8 @@
 package com.example.smart_drinking.ui.Settings;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 //a
 import androidx.annotation.NonNull;
@@ -9,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +33,11 @@ public class SettingFragment extends Fragment {
     ArrayList<RemindersModel> reminderModels = new ArrayList<>();
     Switch swt_sonido, swt_vibracion;
     SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     ArrayList<String> diasSeleccionados = new ArrayList<>();
     Button btn_lunes, btn_martes, btn_miercoles, btn_jueves, btn_viernes, btn_sabado, btn_domingo, btn_registrar;
     NumberPicker numPickerH, numPickerM,numPickerAm;
+    MediaPlayer mp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,45 +66,50 @@ public class SettingFragment extends Fragment {
         numPickerH = view.findViewById(R.id.numPickerH);
         numPickerM  = view.findViewById(R.id.numPickerM);
         numPickerAm = view.findViewById(R.id.numPickerAm);
-
+        mp = MediaPlayer.create(getActivity(), R.raw.notificacion);
 
         initAllPicker();
         // Now you can find your RecyclerView in this view
         RecyclerView myRecyclerView = view.findViewById(R.id.myRecyclerView);
         setUpReminderModels();
         sharedPreferences = getActivity().getSharedPreferences("notificaciones", getActivity().MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("notificaciones",getActivity().MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+//        SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("notificaciones",getActivity().MODE_PRIVATE);
 
-        swt_sonido.setChecked(sharedPreferences1.getBoolean("sonido",false));
-        swt_vibracion.setChecked(sharedPreferences1.getBoolean("vibracion",false));
+        swt_sonido.setChecked(sharedPreferences.getBoolean("sonido",false));
+        swt_vibracion.setChecked(sharedPreferences.getBoolean("vibracion",false));
 
 
-        sharedPreferences = getActivity().getSharedPreferences("notificaciones", getActivity().MODE_PRIVATE);
+//        sharedPreferences = getActivity().getSharedPreferences("notificaciones", getActivity().MODE_PRIVATE);
 
         swt_sonido.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                Toast.makeText(getActivity(), ""+swt_sonido.isChecked(), Toast.LENGTH_SHORT).show();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("sonido",swt_sonido.isChecked());
                 editor.apply();
+                if (swt_sonido.isChecked()){
+                    mp.start();
+
+                }
+
             }
         });
         swt_vibracion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("vibracion",swt_vibracion.isChecked());
                 editor.apply();
-                Toast.makeText(getActivity(), ""+swt_vibracion.isChecked(), Toast.LENGTH_SHORT).show();
+
+                if (swt_vibracion.isChecked()){
+                    Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibrator.vibrate(1000);
+                }
             }
         });
         // Set up the RecyclerView adapter and layout manager
         RM_RecyclerViewAdapter adapter = new RM_RecyclerViewAdapter(getContext(), reminderModels); // Change 'this' to 'getContext()'
         myRecyclerView.setAdapter(adapter);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext())); // Change 'this' to 'getContext()
-
-
 
         btn_lunes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,7 +194,6 @@ public class SettingFragment extends Fragment {
     private void toggleSelection(Button button, String dia) {
         if (diasSeleccionados.contains(dia)) {
             diasSeleccionados.remove(dia);
-            button.setAlpha(1f); // Restaurar la opacidad
         } else {
             diasSeleccionados.add(dia);
             button.setAlpha(0.5f); // Cambiar la opacidad para indicar selección
@@ -192,6 +202,7 @@ public class SettingFragment extends Fragment {
 
     private void imprimirDiasSeleccionados() {
         StringBuilder mensaje = new StringBuilder("Días seleccionados: ");
+//        button.setAlpha(1f);
         for (String dia : diasSeleccionados) {
             mensaje.append(dia).append(", ");
         }
