@@ -1,10 +1,12 @@
 package com.example.smart_drinking;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smart_drinking.Notificaciones.MyBackgroundService;
 import com.example.smart_drinking.ui.Historic.HistoricFragment;
 import com.example.smart_drinking.ui.Home.HomeFragment;
 import com.example.smart_drinking.ui.Settings.SettingFragment;
@@ -23,6 +25,10 @@ public class NavigationHome extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         bottomNavigationView.setSelectedItemId(R.id.home);
+
+        // inicia el servicio
+        Intent serviceIntent = new Intent(this, MyBackgroundService.class);
+        this.startService(serviceIntent);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id  = item.getItemId();
