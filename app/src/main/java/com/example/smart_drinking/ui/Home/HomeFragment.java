@@ -19,6 +19,16 @@ import androidx.fragment.app.Fragment;
 import com.example.smart_drinking.DataBase.DataHelper;
 import com.example.smart_drinking.R;
 
+import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.util.Calendar;
 import java.util.Random;
 
 import cjh.WaveProgressBarlibrary.WaveProgressBar;
@@ -35,6 +45,7 @@ public class HomeFragment extends Fragment {
     Button btn_registrar;
     DataHelper db;
     SharedPreferences sharedPreferences;
+    MqttAndroidClient client;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +62,59 @@ public class HomeFragment extends Fragment {
         btn_registrar = view.findViewById(R.id.btn_registrar);
         et_registro = view.findViewById(R.id.et_registro);
 
+
+        String clientId = MqttClient.generateClientId();
+        client = new MqttAndroidClient(getActivity(), "tcp://test.mosquitto.org:1883", clientId);
+
+        try {
+            IMqttToken token = client.connect();
+            token.setActionCallback(new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    try {
+                        client.subscribe("Smart/drink",0);
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                    }
+                }
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    Toast.makeText(getActivity(), "Fallo de conexión", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+
+        client.setCallback(new MqttCallback() {
+            @Override
+            public void connectionLost(Throwable cause) {
+            }
+
+            @Override
+            public void messageArrived(String topic, MqttMessage message) {
+                String mensaje = new String(message.getPayload());
+                if (topic.matches("Smart/drink")){
+                    if (!mensaje.isEmpty()){
+                        long result = db.addRegistros(mensaje);
+                        if(result != -1 ){
+                            Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                            et_registro.setText("");
+
+                            int progeso =  db.readProgreso();
+                            int value = (int) ((progeso*100)/2000);
+                            mensaje = (2 >= progeso/1000) ? " litros tomados" : " litro tomado";
+                            textoProgreso.setText("Bien hecho, llevas "+(float)progeso/1000 + mensaje);
+
+                            waveProgressBar.setProgress(value);
+                        }
+                    }
+                }
+            }
+            @Override
+            public void deliveryComplete(IMqttDeliveryToken token) {
+            }
+        });
         if(getActivity() != null) { // Verifica si la actividad asociada no es nula
             sharedPreferences = getActivity().getSharedPreferences("mensajes", getActivity().MODE_PRIVATE);
             // Ejemplo de cómo usar sharedPreferences (esto dependerá de tu lógica específica)
