@@ -1,4 +1,4 @@
-package com.example.smart_drinking;
+package com.example.smart_drinking.recyclerView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.smart_drinking.R;
 
 import java.util.ArrayList;
 

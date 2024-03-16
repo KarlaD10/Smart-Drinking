@@ -1,4 +1,4 @@
-package com.example.smart_drinking;
+package com.example.smart_drinking.recyclerView;
 
 public class RemindersModel {
     String dia, hora, horario;

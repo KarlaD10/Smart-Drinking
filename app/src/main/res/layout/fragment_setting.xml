@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
         android:padding="10dp"
         android:orientation="vertical">
 
@@ -24,6 +25,7 @@
                 android:textSize="15sp"/>
 
             <Spinner
+                android:id="@+id/sp_dispositivos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"/>
@@ -94,41 +96,75 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btn_lunes"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="lun"
-                android:textSize="12sp"/>
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:text="mar"
-                android:textSize="12sp"/>
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="mie"
-                android:textSize="12sp"/>
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="jue"
-                android:textSize="12sp"/>
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="vie"
-                android:textSize="12sp"/>
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="sab"
-                android:textSize="12sp"/>
+                android:layout_height="40dp"
+                android:text="LUN"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
 
             <Button
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/btn_martes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="MAR"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_miercoles"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="Mie"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+
+            <Button
+                android:id="@+id/btn_jueves"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="JUE"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_viernes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="vie"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_sabado"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="sab"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_domingo"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
                 android:text="dom"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
 
         </LinearLayout>
 
@@ -176,32 +212,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/botones"
-                android:padding="10dp"
-                android:text="@string/btn_hora"
-                android:textAllCaps="false"
-                android:textColor="@color/textito"
-                android:textSize="18sp" />
-
         </LinearLayout>
 
+
+        <Button
+            android:id="@+id/btn_registrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:text="@string/btn_hora"
+            android:textColor="@color/textito"
+            android:textSize="18sp"
+            android:background="@drawable/botones"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="333dp"
-            android:layout_marginTop="100dp" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_marginTop="40dp" />
+
 
 
     </LinearLayout>
