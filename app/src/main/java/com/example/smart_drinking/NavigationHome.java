@@ -26,9 +26,6 @@ public class NavigationHome extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        // inicia el servicio
-        Intent serviceIntent = new Intent(this, MyBackgroundService.class);
-        this.startService(serviceIntent);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id  = item.getItemId();

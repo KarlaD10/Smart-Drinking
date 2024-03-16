@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends PagerAdapter{
     Context context;
 
     int[] sliderAllImages = {R.drawable.home_image, R.drawable.historic_image, R.drawable.setting_image};
-    int[] sliderAllTitle = {R.string.screen1, R.string.screen2, R.string.screen2};
+    int[] sliderAllTitle = {R.string.screen1, R.string.screen2, R.string.screen3};
     int[] sliderAllDescriptions = {R.string.screenDescrip1, R.string.screenDescrip2, R.string.screenDescrip3};
 
 
@@ -49,6 +49,7 @@ public class ViewPagerAdapter extends PagerAdapter{
         sliderTitle.setText(this.sliderAllTitle[position]);
         sliderDesc.setText(this.sliderAllDescriptions[position]);
 
+        container.addView(view );
         return view;
     }
 

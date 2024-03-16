@@ -28,10 +28,10 @@
         <activity
             android:name=".NavigationHome"
             android:exported="false" />
-        <activity
-            android:name=".HomeNavegation"
-            android:exported="false"
-            android:label="@string/title_activity_navigation" />
+<!--        <activity-->
+<!--            android:name=".HomeNavegation"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_navigation" />-->
         <activity
             android:name=".MainActivity"
             android:exported="true">
