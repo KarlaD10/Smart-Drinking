@@ -22,6 +22,7 @@ import android.widget.NumberPicker;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.smart_drinking.DataBase.DataHelper;
 import com.example.smart_drinking.R;
 import com.example.smart_drinking.recyclerView.RM_RecyclerViewAdapter;
 import com.example.smart_drinking.recyclerView.RemindersModel;
@@ -35,9 +36,11 @@ public class SettingFragment extends Fragment {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     ArrayList<String> diasSeleccionados = new ArrayList<>();
+    ArrayList<Button> botonesSeleccionados = new ArrayList<>();
     Button btn_lunes, btn_martes, btn_miercoles, btn_jueves, btn_viernes, btn_sabado, btn_domingo, btn_registrar;
-    NumberPicker numPickerH, numPickerM,numPickerAm;
+    NumberPicker numPickerH, numPickerM;
     MediaPlayer mp;
+    DataHelper db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,9 +68,9 @@ public class SettingFragment extends Fragment {
         btn_registrar = view.findViewById(R.id.btn_registrar);
         numPickerH = view.findViewById(R.id.numPickerH);
         numPickerM  = view.findViewById(R.id.numPickerM);
-        numPickerAm = view.findViewById(R.id.numPickerAm);
         mp = MediaPlayer.create(getActivity(), R.raw.notificacion);
 
+        db = new DataHelper(getActivity());
         initAllPicker();
         // Now you can find your RecyclerView in this view
         RecyclerView myRecyclerView = view.findViewById(R.id.myRecyclerView);
@@ -180,43 +183,39 @@ public class SettingFragment extends Fragment {
     }
 
     public void initAllPicker(){
-        String[] str = {"AM", "PM"};
 
         // Asumiendo que numPickerH, numPickerM, numPickerAm, etc., son variables de instancia de NumberPicker.
-        initPicker(0, 12, numPickerH);
+        initPicker(0, 24, numPickerH);
         initPicker(0, 59, numPickerM);
-        initPickerWithString(0, str.length - 1, numPickerAm, str);
 
     }
 
-
-
     private void toggleSelection(Button button, String dia) {
-        if (diasSeleccionados.contains(dia)) {
-            diasSeleccionados.remove(dia);
-        } else {
-            diasSeleccionados.add(dia);
-            button.setAlpha(0.5f); // Cambiar la opacidad para indicar selección
-        }
+        diasSeleccionados.add(dia);
+        botonesSeleccionados.add(button);
+        button.setAlpha(0.5f);
     }
 
     private void imprimirDiasSeleccionados() {
-        StringBuilder mensaje = new StringBuilder("Días seleccionados: ");
-//        button.setAlpha(1f);
-        for (String dia : diasSeleccionados) {
-            mensaje.append(dia).append(", ");
+        if (diasSeleccionados.isEmpty()){
+            Toast.makeText(getActivity(), "Es necesario seleccionar al menos un día \n Por favor intentalo de nuevo", Toast.LENGTH_SHORT).show();
+        }else{
+            for (String dia : diasSeleccionados) {
+                db.addRecordatorio(dia, String.valueOf(numPickerH.getValue()), String.valueOf(numPickerM.getValue()));
+            }
+            for (Button boton:botonesSeleccionados){
+                boton.setAlpha(1f);
+            }
+            // Eliminar la coma extra y mostrar el mensaje
+//        mensaje.deleteCharAt(mensaje.length() - 2);
+            // Puedes imprimir o mostrar el mensaje en un TextView, por ejemplo
+//        System.out.println(mensaje.toString());
+            diasSeleccionados.clear();
+            botonesSeleccionados.clear();
         }
-        // Eliminar la coma extra y mostrar el mensaje
-        mensaje.deleteCharAt(mensaje.length() - 2);
-        // Puedes imprimir o mostrar el mensaje en un TextView, por ejemplo
-        System.out.println(mensaje.toString());
     }
 
     private void setUpReminderModels(){
-        //Aqui debe de ir una forma en la que se obtienen los valores de la BD de los recodatorios;
-        //Y se almacenen en formad de String
-
-
         for (int i = 0; i < 10; i++){
             reminderModels.add(new RemindersModel(""+i,
                                                     ""+i,

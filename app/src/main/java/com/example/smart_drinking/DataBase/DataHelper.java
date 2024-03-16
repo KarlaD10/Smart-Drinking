@@ -81,7 +81,7 @@ public class DataHelper extends SQLiteOpenHelper {
         cvR.put(COLUMN_MINUTO, minuto);
 
         try{
-            db.insert(TABLE_REGISTROS, null, cvR);
+            db.insert(TABLE_RECORDATORIOS, null, cvR);
         }catch (Exception e){
             System.out.println("Excepcion al añadir el registro: " + e);
         }
