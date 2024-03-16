@@ -42,15 +42,22 @@ public class HistoricFragment extends Fragment {
 
         tv_consumoMensual = view.findViewById(R.id.tv_consumoMensual);
         tv_consumoSemanal = view.findViewById(R.id.tv_consumoSemanal);
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
                 String formattedDate = String.format("%02d%02d%04d", day, month + 1, year);
                 int consumo = db.readConsumoDia(formattedDate);
+
+                float resultado = (float) ((consumo - 3000) / 1000);
+                String resultadoConDosDecimales = String.format("%.2f", resultado);
+
+// Si necesitas el resultado como un float para operaciones posteriores:
+                float resultadoFinal = Float.parseFloat(resultadoConDosDecimales);
                 if(consumo == -1){
                     Toast.makeText(getActivity(), "Ups parece que no has tomado agua aun", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + consumo/1000 + " litros", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Tu consumo de este dia fue de " + resultadoConDosDecimales + " litros", Toast.LENGTH_LONG).show();
                 }
             }
         });

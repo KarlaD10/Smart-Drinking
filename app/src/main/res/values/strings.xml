@@ -15,7 +15,7 @@
     <string name="screen1">Registro del consumo diario.</string>
     <string name="screen2">Histórico del consumo</string>
     <string name="screen3">Configuracion de la app</string>
-    <string name="screenDescrip1">Registra un nuevo consumo y llenate de motivacion.</string>
-    <string name="screenDescrip2">Revisa tu proceso mensual haciendo clic en el icono Progress y verificando tu consumo en un dia especifico dando clic en el calendario</string>
-    <string name="screenDescrip3">Configura los recordatorios en el apartado de Settings</string>
+    <string name="screenDescrip1">Monitorea tu progeso actual y agrega más en la pestaña Home.</string>
+    <string name="screenDescrip2">Revisa tu proceso mensual haciendo clic en el ícono Histórico y verificando tu consumo en un dia especifico dando click en el calendario</string>
+    <string name="screenDescrip3">Configura los recordatorios en el apartado de Ajustes y el estilo de tus notificaciones con o sin vibración y sonido</string>
 </resources>
