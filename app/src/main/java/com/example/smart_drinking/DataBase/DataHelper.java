@@ -162,4 +162,29 @@ public class DataHelper extends SQLiteOpenHelper {
     }
 
 
+    public JSONArray getDataRecordatorio(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor_tipo = db.rawQuery("SELECT dia, strftime('%H:%M', printf('%02d', hora) || ':' || printf('%02d', minuto)) AS hora_formada " +
+                "FROM recordatorios", null);
+
+        JSONArray jsonArray = new JSONArray();
+        if (cursor_tipo != null){
+            while(cursor_tipo.moveToNext()){
+                int columnCount = cursor_tipo.getColumnCount();
+                JSONObject jsonObject = new JSONObject();
+
+                for(int i=0; i<columnCount; i++){
+                    String columnNameTipo = cursor_tipo.getColumnName(i);
+                    String columnValueTipo = cursor_tipo.getString(i);
+                    try{
+                        jsonObject.put(columnNameTipo, columnValueTipo);
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+                jsonArray.put(jsonObject);
+            }
+        }
+        return jsonArray;
+    }
 }

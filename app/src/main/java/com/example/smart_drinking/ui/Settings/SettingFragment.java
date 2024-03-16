@@ -27,6 +27,9 @@ import com.example.smart_drinking.R;
 import com.example.smart_drinking.recyclerView.RM_RecyclerViewAdapter;
 import com.example.smart_drinking.recyclerView.RemindersModel;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 
@@ -75,6 +78,7 @@ public class SettingFragment extends Fragment {
         // Now you can find your RecyclerView in this view
         RecyclerView myRecyclerView = view.findViewById(R.id.myRecyclerView);
         setUpReminderModels();
+
         sharedPreferences = getActivity().getSharedPreferences("notificaciones", getActivity().MODE_PRIVATE);
         editor = sharedPreferences.edit();
 //        SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("notificaciones",getActivity().MODE_PRIVATE);
@@ -212,15 +216,30 @@ public class SettingFragment extends Fragment {
 //        System.out.println(mensaje.toString());
             diasSeleccionados.clear();
             botonesSeleccionados.clear();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setUpReminderModels();
+                }
+            }, 2000);
         }
     }
 
     private void setUpReminderModels(){
-        for (int i = 0; i < 10; i++){
-            reminderModels.add(new RemindersModel(""+i,
-                                                    ""+i,
-                                                    ""+i,
-                                                    R.drawable.baseline_access_alarms_24));
+        JSONArray jsonArray = db.getDataRecordatorio();
+        reminderModels.clear();
+        for (int i = 0; i < jsonArray.length(); i++){
+            try {
+                JSONObject json = jsonArray.getJSONObject(i);
+                reminderModels.add(new RemindersModel(json.getString("dia"),
+                        "",
+                        json.getString("hora_formada"),
+                        R.drawable.baseline_access_alarms_24));
+            }catch (Exception e){
+                System.out.println(e);
+            }
         }
     }
 }
