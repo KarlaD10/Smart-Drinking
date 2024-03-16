@@ -60,8 +60,12 @@ public class HomeFragment extends Fragment {
         }
         int progeso =  db.readProgreso();
         String mensaje = (2 >= progeso/1000) ? " litros tomados" : " litro tomado";
-        textoProgreso.setText("Bien hecho, llevas "+(float) progeso/1000 + mensaje);
-
+        if(  progeso <= 0 ) {
+            textoProgreso.setText("Parece que no has tomado agua, ¡toma un poco para subir ese progreso!");
+        }
+        else{
+            textoProgreso.setText("Bien hecho, llevas "+(float) progeso/1000 + mensaje);
+        }
         int value = (int) ((progeso*100)/2000);
         waveProgressBar.setProgress(value);
 

@@ -39,7 +39,7 @@ public class SettingFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("notificaciones",getActivity().MODE_PRIVATE);
 
-            Toast.makeText(getActivity(), "No Vacio", Toast.LENGTH_SHORT).show();
+
             swt_sonido.setChecked(sharedPreferences1.getBoolean("sonido",false));
             swt_vibracion.setChecked(sharedPreferences1.getBoolean("vibracion",false));
 
