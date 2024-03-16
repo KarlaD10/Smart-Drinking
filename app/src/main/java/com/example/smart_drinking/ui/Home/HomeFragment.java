@@ -132,7 +132,20 @@ public class HomeFragment extends Fragment {
         }
         int value = (int) ((progeso*100)/2000);
         waveProgressBar.setProgress(value);
+        mensaje1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Acción a realizar cuando el TextView es clickeado
+                Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                db.addRegistros("50");
+                int progeso =  db.readProgreso();
+                int value = (int) ((progeso*100)/2000);
+                String mensaje = (2 >= progeso/1000) ? " litros tomados" : " litro tomado";
+                textoProgreso.setText("Bien hecho, llevas "+(float)progeso/1000 + mensaje);
 
+                waveProgressBar.setProgress(value);
+            }
+        });
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -11,10 +11,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smart_drinking.Notificaciones.MyBackgroundService;
-
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
 //a
