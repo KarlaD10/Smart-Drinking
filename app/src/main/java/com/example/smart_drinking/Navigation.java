@@ -41,9 +41,9 @@ public class Navigation extends AppCompatActivity {
 
             if (position==2)
             {
-                nextButton.setText("Finish");
+                nextButton.setText("Finalizar");
             }else{
-                nextButton.setText("Next");
+                nextButton.setText("Siguiente");
             }
         }
 
