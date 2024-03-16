@@ -97,11 +97,11 @@ public class DataHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
             } else {
-                aguaConsumida = "-1";
+                aguaConsumida = "0";
             }
             cursor.close();
         }catch (Exception e){
-            aguaConsumida = "-1";
+            aguaConsumida = "0";
         }
         // Intentar convertir la cadena a entero
         try {
@@ -137,7 +137,7 @@ public class DataHelper extends SQLiteOpenHelper {
     }
     public int readConsumoDia(String fecha) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String aguaConsumida = "-1"; // Inicializar con un valor por defecto
+        String aguaConsumida = "0"; // Inicializar con un valor por defecto
 
         try {
             Cursor cursor = db.rawQuery("SELECT SUM(registros.agua_consumida) AS ac FROM registros WHERE strftime('%d%m%Y', 'now', 'localtime')='" + fecha + "'", null);
@@ -157,7 +157,7 @@ public class DataHelper extends SQLiteOpenHelper {
             return Integer.parseInt(aguaConsumida);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
-            return -1; // Devolver un valor predeterminado en caso de error
+            return 0; // Devolver un valor predeterminado en caso de error
         }
     }
 

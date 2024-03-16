@@ -176,19 +176,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/botones"
+                android:padding="10dp"
+                android:text="@string/btn_hora"
+                android:textAllCaps="false"
+                android:textColor="@color/textito"
+                android:textSize="18sp" />
+
         </LinearLayout>
 
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            android:text="@string/btn_hora"
-            android:textColor="@color/textito"
-            android:textSize="18sp"
-            android:background="@drawable/botones"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecyclerView"
