@@ -16,28 +16,41 @@
         <TextView
             android:id="@+id/mensaje1"
             android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="70dp"
+            android:layout_marginBottom="-20dp"
             android:layout_weight=".3"
             android:text="Hola tonoto, vas muy bien tomando awa"
             android:textAlignment="center"
             android:textSize="23sp" />
 
+        <TextView
+            android:id="@+id/textoProgreso"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight=".3"
+            android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
         <cjh.WaveProgressBarlibrary.WaveProgressBar
             android:id="@+id/waveprogressbar"
             android:layout_width="260dp"
             android:layout_height="260dp"
-            android:layout_marginTop="40dp"
             android:layout_gravity="center"
-            app:behind_wave_color="#01A1D6"
-            app:front_wave_color="#9dd8ed"
-            app:text_color="@color/black"
+            android:layout_marginTop="40dp"
             app:arc_color="@color/textito"
+            app:behind_wave_color="#01A1D6"
             app:cavans_bg="@color/botones"
-            app:text_size="50sp"
+            app:front_wave_color="#9dd8ed"
+            app:progress="50"
             app:shape="circle"
-            app:progress="50"/>
+            app:text_color="@color/black"
+            app:text_size="50sp"
+            tools:layout_marginTop="-40dp" />
 
 
         <LinearLayout
@@ -49,6 +62,15 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/ml"
+                android:textSize="25dp" />
+
+
+
             <EditText
                 android:id="@+id/et_registro"
                 android:layout_width="100dp"
@@ -56,13 +78,6 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:inputType="number" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/ml"
-                android:textSize="25dp" />
 
             <Button
                 android:id="@+id/btn_registrar"
@@ -77,16 +92,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textoProgreso"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:layout_weight=".3"
-            android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
-            android:textAlignment="center"
-            android:textSize="20sp" />
     </LinearLayout>
 
 </RelativeLayout>

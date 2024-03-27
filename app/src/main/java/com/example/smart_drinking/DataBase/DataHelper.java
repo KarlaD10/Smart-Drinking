@@ -128,6 +128,8 @@ public class DataHelper extends SQLiteOpenHelper {
                     "    AND strftime('%Y-%m-%d', 'now', 'weekday 0');", null);
             if (cursor.moveToFirst()) {
                 aguaConsumida = cursor.getString(cursor.getColumnIndexOrThrow("ac"));
+            } else {
+                aguaConsumida = "0";
             }
 
         }catch (Exception e){

@@ -3,10 +3,14 @@ package com.example.smart_drinking.ui.Home;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +22,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.smart_drinking.DataBase.DataHelper;
 import com.example.smart_drinking.R;
+import com.example.smart_drinking.ToastCaller;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -38,7 +43,7 @@ public class HomeFragment extends Fragment {
     int progress = 0;
     boolean started = false;
     Random randomNumbers = new Random();
-
+    TextView tv_toast;
     TextView mensaje1, textoProgreso;
     WaveProgressBar waveProgressBar;
     EditText et_registro;
@@ -46,6 +51,12 @@ public class HomeFragment extends Fragment {
     DataHelper db;
     SharedPreferences sharedPreferences;
     MqttAndroidClient client;
+    ToastCaller toastCaller = new ToastCaller();
+    String bebidas[] = {"1","2","3","4","5"};
+
+
+    AutoCompleteTextView autoCompleteTextView;
+    ArrayAdapter<String> adapterItems;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +73,20 @@ public class HomeFragment extends Fragment {
         btn_registrar = view.findViewById(R.id.btn_registrar);
         et_registro = view.findViewById(R.id.et_registro);
 
+
+
+
+
+
+
+        LayoutInflater inflaterr = getLayoutInflater();
+        View layout = inflaterr.inflate(R.layout.custom_toast, (ViewGroup)view.findViewById(R.id.toast_id));
+
+       //#tv_toast = (TextView) layout.findViewById(R.id.tv_toast);
+        //final Toast tostada = new Toast(getActivity().getApplicationContext());
+        //tostada.setGravity(Gravity.CENTER_VERTICAL,0,0);
+        //tostada.setDuration(Toast.LENGTH_LONG);
+        //tostada.setView(layout);
 
         String clientId = MqttClient.generateClientId();
         client = new MqttAndroidClient(getActivity(), "tcp://test.mosquitto.org:1883", clientId);
@@ -154,7 +179,10 @@ public class HomeFragment extends Fragment {
                 if (!dato_consumo.isEmpty()){
                     long result = db.addRegistros(dato_consumo);
                     if(result != -1 ){
-                        Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+                        //tv_toast.setText("Registro exitoso");
+                        //tostada.show();
+                        toastCaller.callToast(layout, getActivity().getApplicationContext(),"Registro exitoso");
                         et_registro.setText("");
 
                         InputMethodManager imm = (InputMethodManager) (getActivity().getSystemService(Context.INPUT_METHOD_SERVICE));

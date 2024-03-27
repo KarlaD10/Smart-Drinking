@@ -2,11 +2,12 @@ package com.example.smart_drinking;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smart_drinking.Notificaciones.MyBackgroundService;
+
 import com.example.smart_drinking.ui.Historic.HistoricFragment;
 import com.example.smart_drinking.ui.Home.HomeFragment;
 import com.example.smart_drinking.ui.Settings.SettingFragment;
@@ -14,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavigationHome extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+
     HomeFragment homeFragment = new HomeFragment();
     SettingFragment settingFragment = new SettingFragment();
     HistoricFragment historicFragment = new HistoricFragment();
