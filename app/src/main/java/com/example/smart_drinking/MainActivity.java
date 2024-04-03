@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(key9,nueve);
                 editor.putString(key10,diez);
                 editor.apply();
-                Intent intent = new Intent(MainActivity.this, Navigation.class);
+                Intent intent = new Intent(MainActivity.this, NavigationHome.class);
                 startActivity(intent);
                 finish(); // Finaliza la actividad actual
             }

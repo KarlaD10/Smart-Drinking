@@ -52,6 +52,7 @@ public class HomeFragment extends Fragment {
     SharedPreferences sharedPreferences;
     MqttAndroidClient client;
     ToastCaller toastCaller = new ToastCaller();
+    IMqttToken token;
     String bebidas[] = {"1","2","3","4","5"};
 
 
@@ -73,12 +74,6 @@ public class HomeFragment extends Fragment {
         btn_registrar = view.findViewById(R.id.btn_registrar);
         et_registro = view.findViewById(R.id.et_registro);
 
-
-
-
-
-
-
         LayoutInflater inflaterr = getLayoutInflater();
         View layout = inflaterr.inflate(R.layout.custom_toast, (ViewGroup)view.findViewById(R.id.toast_id));
 
@@ -92,23 +87,25 @@ public class HomeFragment extends Fragment {
         client = new MqttAndroidClient(getActivity(), "tcp://test.mosquitto.org:1883", clientId);
 
         try {
-            IMqttToken token = client.connect();
+            token = client.connect();
             token.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
                     try {
-                        client.subscribe("Smart/drink",0);
+                        client.subscribe("Smartdrink/Mensaje", 0);
                     } catch (MqttException e) {
-                        e.printStackTrace();
+                        throw new RuntimeException(e);
                     }
                 }
+
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Toast.makeText(getActivity(), "Fallo de conexión", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Error en la conexión", Toast.LENGTH_SHORT).show();
+
                 }
             });
         } catch (MqttException e) {
-            e.printStackTrace();
+            System.out.println("Ecepcion en mqtt" + e);
         }
 
         client.setCallback(new MqttCallback() {
@@ -119,20 +116,22 @@ public class HomeFragment extends Fragment {
             @Override
             public void messageArrived(String topic, MqttMessage message) {
                 String mensaje = new String(message.getPayload());
-                if (topic.matches("Smart/drink")){
+                if (topic.matches("Smartdrink/Mensaje")){
                     if (!mensaje.isEmpty()){
+
                         long result = db.addRegistros(mensaje);
-                        if(result != -1 ){
+                        if(result != -1 ) {
                             Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
                             et_registro.setText("");
 
-                            int progeso =  db.readProgreso();
-                            int value = (int) ((progeso*100)/2000);
-                            mensaje = (2 >= progeso/1000) ? " litros tomados" : " litro tomado";
-                            textoProgreso.setText("Bien hecho, llevas "+(float)progeso/1000 + mensaje);
+                            int progeso = db.readProgreso();
+                            int value = (int) ((progeso * 100) / 2000);
+                            mensaje = (2 >= progeso / 1000) ? " litros tomados" : " litro tomado";
+                            textoProgreso.setText("Bien hecho, llevas " + (float) progeso / 1000 + mensaje);
 
                             waveProgressBar.setProgress(value);
                         }
+
                     }
                 }
             }
