@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,7 @@ public class ViewPagerAdapter extends PagerAdapter{
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (LinearLayout) object;
+        return view == (RelativeLayout) object;
     }
 
     @NonNull
@@ -39,15 +40,15 @@ public class ViewPagerAdapter extends PagerAdapter{
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.slider_screen, container, false);
+        View view = layoutInflater.inflate(R.layout.activity_navigation_home, container, false);
 
-        ImageView sliderImage = view.findViewById(R.id.sliderImage);
-        TextView sliderTitle = view.findViewById(R.id.sliderTitle);
-        TextView sliderDesc = view.findViewById(R.id.slideDesc);
+//        ImageView sliderImage = view.findViewById(R.id.sliderImage);
+//        TextView sliderTitle = view.findViewById(R.id.sliderTitle);
+//        TextView sliderDesc = view.findViewById(R.id.slideDesc);
 
-        sliderImage.setImageResource(sliderAllImages[position]);
-        sliderTitle.setText(this.sliderAllTitle[position]);
-        sliderDesc.setText(this.sliderAllDescriptions[position]);
+//        sliderImage.setImageResource(sliderAllImages[position]);
+//        sliderTitle.setText(this.sliderAllTitle[position]);
+//        sliderDesc.setText(this.sliderAllDescriptions[position]);
 
         container.addView(view );
         return view;
@@ -55,6 +56,6 @@ public class ViewPagerAdapter extends PagerAdapter{
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((LinearLayout)object);
+        container.removeView((RelativeLayout)object);
     }
 }

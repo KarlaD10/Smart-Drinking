@@ -62,15 +62,6 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/ml"
-                android:textSize="25dp" />
-
-
-
             <EditText
                 android:id="@+id/et_registro"
                 android:layout_width="100dp"
@@ -78,6 +69,13 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/ml"
+                android:textSize="25dp" />
 
             <Button
                 android:id="@+id/btn_registrar"

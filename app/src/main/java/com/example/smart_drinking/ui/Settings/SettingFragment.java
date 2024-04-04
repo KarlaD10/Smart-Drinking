@@ -1,12 +1,18 @@
 package com.example.smart_drinking.ui.Settings;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 //a
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +29,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.smart_drinking.DataBase.DataHelper;
+import com.example.smart_drinking.MainActivity;
 import com.example.smart_drinking.R;
 import com.example.smart_drinking.recyclerView.RM_RecyclerViewAdapter;
 import com.example.smart_drinking.recyclerView.RemindersModel;
@@ -45,6 +52,8 @@ public class SettingFragment extends Fragment {
     MediaPlayer mp;
     DataHelper db;
     RM_RecyclerViewAdapter adapter;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -158,7 +167,8 @@ public class SettingFragment extends Fragment {
         btn_domingo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggleSelection(btn_domingo, "Domingo");
+                makeNotification();
+//                toggleSelection(btn_domingo, "Domingo");
             }
         });
         btn_registrar.setOnClickListener(new View.OnClickListener() {
@@ -167,6 +177,41 @@ public class SettingFragment extends Fragment {
                 imprimirDiasSeleccionados();
             }
         });
+
+    }
+
+    public void makeNotification(){
+        String channelID = "CHANNEL_ID_NOTIFICATION";
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(getActivity(), channelID);
+        builder.setSmallIcon(R.drawable.a)
+                .setContentTitle("Notificacion prueba")
+                .setContentText("Some informacion aqui")
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_MUTABLE);
+        builder.setContentIntent(pendingIntent);
+
+        getActivity();
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelID);
+
+            if (notificationChannel == null){
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel = new NotificationChannel(channelID, "Nombreq", importance);
+                notificationChannel.setLightColor(Color.CYAN);
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+        notificationManager.notify(0, builder.build());
 
     }
 
