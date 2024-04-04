@@ -39,7 +39,7 @@ public class Navigation extends AppCompatActivity {
                 backButton.setVisibility(View.INVISIBLE);
             }
 
-            if (position==2)
+            if (position==3)
             {
                 nextButton.setText("Finalizar");
             }else{
@@ -75,7 +75,7 @@ public class Navigation extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (getItem(0)<2){
+                if (getItem(0)<3){
                     slideViewPager.setCurrentItem(getItem(1), true);
                 }else{
                     Intent intent = new Intent(Navigation.this, GetStarted.class);
@@ -107,7 +107,7 @@ public class Navigation extends AppCompatActivity {
     }
 
     public void setDotIndicato(int position){
-        dots = new TextView[3];
+        dots = new TextView[4];
 
         dotIndicator.removeAllViews();
 

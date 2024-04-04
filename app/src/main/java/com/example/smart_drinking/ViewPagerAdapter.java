@@ -17,7 +17,7 @@ public class ViewPagerAdapter extends PagerAdapter{
     Context context;
 
     int[] sliderAllImages = {R.drawable.home_image, R.drawable.historic_image, R.drawable.setting_image};
-    int[] sliderAllTitle = {R.string.screen1, R.string.screen2, R.string.screen3};
+    int[] sliderAllTitle = {R.string.screen1, R.string.screen2, R.string.screen3, R.string.screen4};
     int[] sliderAllDescriptions = {R.string.screenDescrip1, R.string.screenDescrip2, R.string.screenDescrip3};
 
 
@@ -39,19 +39,29 @@ public class ViewPagerAdapter extends PagerAdapter{
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.activity_navigation_home, container, false);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = null;
 
-//        ImageView sliderImage = view.findViewById(R.id.sliderImage);
-//        TextView sliderTitle = view.findViewById(R.id.sliderTitle);
-//        TextView sliderDesc = view.findViewById(R.id.slideDesc);
+        switch(position) {
+            case 0:
+                view = layoutInflater.inflate(R.layout.activity_navigation_home, container, false);
 
-//        sliderImage.setImageResource(sliderAllImages[position]);
-//        sliderTitle.setText(this.sliderAllTitle[position]);
-//        sliderDesc.setText(this.sliderAllDescriptions[position]);
+                break;
+            case 1:
+                view = layoutInflater.inflate(R.layout.fragment_home, container, false);
+                break;
+            case 2:
+                view = layoutInflater.inflate(R.layout.fragment_historic, container, false);
+                break;
+            case 3:
+                view = layoutInflater.inflate(R.layout.fragment_setting, container, false);
+                break;
+        }
 
-        container.addView(view );
+        // Agregar la vista al contenedor
+        container.addView(view);
         return view;
+
     }
 
     @Override
