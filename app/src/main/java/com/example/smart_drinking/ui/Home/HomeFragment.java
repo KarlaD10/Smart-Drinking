@@ -101,6 +101,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
                     Toast.makeText(getActivity(), "Error en la conexión", Toast.LENGTH_SHORT).show();
+                    System.out.println(exception);
 
                 }
             });
