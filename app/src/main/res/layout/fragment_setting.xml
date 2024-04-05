@@ -8,27 +8,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Conectar Bluetooth"
+            android:textAlignment="center"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:text="@string/dispositivos"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <Spinner
                 android:id="@+id/sp_dispositivos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="20dp" />
 
         </LinearLayout>
 
@@ -38,6 +48,15 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/linea" />
 
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Configurar estilo recordatorio"
+            android:textAlignment="center"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/vibracion"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <Switch
                 android:id="@+id/swt_vibracion"
@@ -71,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sonido"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <Switch
                 android:id="@+id/swt_sonido"
@@ -88,6 +107,15 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/linea" />
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Registrar recordatorio"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,71 +127,71 @@
                 android:id="@+id/btn_lunes"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="LUN"
-                android:textSize="12sp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="LUN"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_martes"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="MAR"
-                android:textSize="12sp"
                 android:layout_marginStart="5dp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="MAR"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_miercoles"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="Mie"
                 android:layout_marginStart="5dp"
-                android:textSize="12sp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="Mie"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
 
             <Button
                 android:id="@+id/btn_jueves"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="JUE"
                 android:layout_marginStart="5dp"
-                android:textSize="12sp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="JUE"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_viernes"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="vie"
                 android:layout_marginStart="5dp"
-                android:textSize="12sp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="vie"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_sabado"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="sab"
-                android:textSize="12sp"
                 android:layout_marginStart="5dp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="sab"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_domingo"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:text="dom"
-                android:textSize="12sp"
                 android:layout_marginStart="5dp"
                 android:background="@drawable/botones"
-                android:textColor="@color/textito"/>
+                android:text="dom"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
 
 
         </LinearLayout>
@@ -215,20 +243,28 @@
             android:id="@+id/btn_registrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_gravity="center"
-            android:textAllCaps="false"
+            android:background="@drawable/botones"
+            android:padding="10dp"
             android:text="@string/btn_hora"
+            android:textAllCaps="false"
             android:textColor="@color/textito"
-            android:textSize="18sp"
-            android:background="@drawable/botones"/>
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Registros almacenados"
+            android:textAlignment="center"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp" />
-
+            android:layout_marginTop="20dp" />
 
 
     </LinearLayout>
