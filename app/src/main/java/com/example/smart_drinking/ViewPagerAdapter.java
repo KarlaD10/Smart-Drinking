@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -64,29 +65,23 @@ public class ViewPagerAdapter extends PagerAdapter{
                 LinearLayout layout_registro_tuto = view.findViewById(R.id.layout_registro_tuto);
                 tv_tutorial_home_tuto = view.findViewById(R.id.tv_tutorial_home_tuto);
 
-
-                mensaje1_tuto.setVisibility(View.GONE);
-                textoProgreso_tuto.setVisibility(View.GONE);
-                waveprogressbar_tuto.setVisibility(View.GONE);
-                layout_registro_tuto.setVisibility(View.GONE);
-
                 layout_home_tutorial.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         switch (cont[0]){
                             case 0:
                                 mensaje1_tuto.setVisibility(View.VISIBLE);
-                                tv_tutorial_home_tuto.setText(R.string.narracion_home_tuto1);
+                                tv_tutorial_home_tuto.setText(R.string.narracion_home_tuto);
                                 cont[0]++;
                                 break;
                             case 1:
                                 textoProgreso_tuto.setVisibility(View.VISIBLE);
-                                tv_tutorial_home_tuto.setText(R.string.narracion_home_tuto2);
+                                tv_tutorial_home_tuto.setText(R.string.narracion_home_tuto1);
                                 cont[0]++;
                                 break;
                             case 2:
                                 waveprogressbar_tuto.setVisibility(View.VISIBLE);
-                                tv_tutorial_home_tuto.setText(R.string.narracion_home_tuto);
+                                tv_tutorial_home_tuto.setText(R.string.narracion_home_tuto2);
                                 cont[0]++;
                                 break;
                             case 3:
@@ -107,26 +102,30 @@ public class ViewPagerAdapter extends PagerAdapter{
                 final int[] contHistoric = {0};
                 view = layoutInflater.inflate(R.layout.fragment_historic_tuto, container, false);
 
+                CalendarView calendarView_tuto = view.findViewById(R.id.calendarView_tuto);
+                TextView tv_consumoMensual_tuto = view.findViewById(R.id.tv_consumoMensual_tuto);
+                LinearLayout LinearLayout_tuto = view.findViewById(R.id.LinearLayout_tuto);
+                tv_tutorial_home_tuto = view.findViewById(R.id.tv_tutorial_historic);
+
                 switch (contHistoric[0]){
                     case 0:
-
+                        calendarView_tuto.setVisibility(View.VISIBLE);
+                        tv_tutorial_home_tuto.setText(R.string.narracion_historic_tuto);
                         contHistoric[0]++;
                         break;
                     case 1:
-
+                        tv_consumoMensual_tuto.setVisibility(View.VISIBLE);
+                        tv_tutorial_home_tuto.setText(R.string.narracion_historic_tuto1);
                         contHistoric[0]++;
                         break;
                     case 2:
-
-                        contHistoric[0]++;
-                        break;
-                    case 3:
+                        LinearLayout_tuto.setVisibility(View.VISIBLE);
+                        tv_tutorial_home_tuto.setText(R.string.narracion_historic_tuto2);
                         contHistoric[0]++;
                         break;
                     default:
                         contHistoric[0] =0;
                         break;
-
                 }
                 break;
             case 3:

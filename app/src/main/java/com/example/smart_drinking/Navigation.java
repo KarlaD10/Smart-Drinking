@@ -33,11 +33,6 @@ public class Navigation extends AppCompatActivity {
         @Override
         public void onPageSelected(int position) {
             setDotIndicato(position);
-            if (position>0){
-                backButton.setVisibility(View.VISIBLE);
-            }else{
-                backButton.setVisibility(View.INVISIBLE);
-            }
 
             if (position==3)
             {

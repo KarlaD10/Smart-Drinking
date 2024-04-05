@@ -29,10 +29,12 @@
         <item>Smart Drink - 01 </item>
     </string-array>
 
-    <string name="narracion_home_tuto"></string>
-    <string name="narracion_home_tuto1">Configura los recordatorios en el apartado de Ajustes y el estilo de tus notificaciones con o sin vibración y sonido</string>
-    <string name="narracion_home_tuto2">Configura los recordatorios en el apartado de Ajustes y el estilo de tus notificaciones con o sin vibración y sonido</string>
-    <string name="narracion_home_tuto3">Configura los recordatorios en el apartado de Ajustes y el estilo de tus notificaciones con o sin vibración y sonido</string>
-    <string name="narracion_home_tuto4">Configura los recordatorios en el apartado de Ajustes y el estilo de tus notificaciones con o sin vibración y sonido</string>
-    <string name="narracion_home_tuto5">Configura los recordatorios en el apartado de Ajustes y el estilo de tus notificaciones con o sin vibración y sonido</string>
+    <string name="narracion_home_tuto">Visualiza información acerca del consumo de agua.</string>
+    <string name="narracion_home_tuto1">En esta sección, podrás observar el registro actualizado de tu consumo de agua durante el transcurso del día.</string>
+    <string name="narracion_home_tuto2">Rastrear tu progreso hacia el objetivo de hidratación diario al alcanzar el 100%.</string>
+    <string name="narracion_home_tuto3">Esta función te permite introducir manualmente la cantidad de agua que has consumido.</string>
+
+    <string name="narracion_historic_tuto">En esta sección, podrás observar el registro actualizado de tu consumo de agua durante el transcurso del día.</string>
+    <string name="narracion_historic_tuto1">Rastrear tu progreso hacia el objetivo de hidratación diario al alcanzar el 100%.</string>
+    <string name="narracion_historic_tuto2">Esta función te permite introducir manualmente la cantidad de agua que has consumido.</string>
 </resources>
