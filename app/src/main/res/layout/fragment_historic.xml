@@ -54,6 +54,29 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layout_gotita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/gota"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:src="@drawable/a" />
+
+            <TextView
+                android:id="@+id/tv_tutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Bienvido a la página de home"
+                android:layout_marginEnd="20dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
