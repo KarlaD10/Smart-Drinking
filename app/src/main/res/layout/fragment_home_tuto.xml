@@ -12,39 +12,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginTop="20dp"
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/mensaje1"
+            android:id="@+id/mensaje1_tuto"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="-20dp"
-            android:layout_weight=".3"
-            android:text="Hola tonoto, vas muy bien tomando awa"
+            android:text="Hola tonoto, vas muy \n bien tomando awa"
             android:textAlignment="center"
             android:textSize="23sp"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
 
         <TextView
-            android:id="@+id/textoProgreso"
+            android:id="@+id/textoProgreso_tuto"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:layout_weight=".3"
             android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
 
         <cjh.WaveProgressBarlibrary.WaveProgressBar
-            android:id="@+id/waveprogressbar"
+            android:id="@+id/waveprogressbar_tuto"
             android:layout_width="250dp"
             android:layout_height="230dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
             app:arc_color="@color/textito"
             app:behind_wave_color="#01A1D6"
             app:cavans_bg="@color/botones"
@@ -53,18 +50,16 @@
             app:shape="circle"
             app:text_color="@color/black"
             app:text_size="50sp"
-            tools:layout_marginTop="-40dp"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
 
         <LinearLayout
-            android:id="@+id/layout_registro"
+            android:id="@+id/layout_registro_tuto"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight=".3"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:visibility="invisible">
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/et_registro"
@@ -95,10 +90,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_gotita"
+            android:id="@+id/layout_gotita_home_tuto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
 
             <ImageView
                 android:id="@+id/gota"
@@ -107,11 +103,12 @@
                 android:src="@drawable/a" />
 
             <TextView
-                android:id="@+id/tv_tutorial"
+                android:id="@+id/tv_tutorial_home_tuto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Bienvido a la página de home"
+                android:textColor="@color/black"
+                android:text="Bienvenido a la página de progreso.\n Da clic en la pantalla para continuar con el tutorial."
                 android:layout_marginEnd="20dp"
                 android:textSize="20sp" />
 
