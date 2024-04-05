@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.Home.HomeFragment">
+
+    <LinearLayout
+        android:id="@+id/layout_home_tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/mensaje1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="-20dp"
+            android:layout_weight=".3"
+            android:text="Hola tonoto, vas muy bien tomando awa"
+            android:textAlignment="center"
+            android:textSize="23sp"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/textoProgreso"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight=".3"
+            android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:visibility="invisible"/>
+
+        <cjh.WaveProgressBarlibrary.WaveProgressBar
+            android:id="@+id/waveprogressbar"
+            android:layout_width="250dp"
+            android:layout_height="230dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            app:arc_color="@color/textito"
+            app:behind_wave_color="#01A1D6"
+            app:cavans_bg="@color/botones"
+            app:front_wave_color="#9dd8ed"
+            app:progress="50"
+            app:shape="circle"
+            app:text_color="@color/black"
+            app:text_size="50sp"
+            tools:layout_marginTop="-40dp"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/layout_registro"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <EditText
+                android:id="@+id/et_registro"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/ml"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn_registrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"
+                android:layout_marginStart="20dp"
+                android:text="@string/btn_add" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_gotita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/gota"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:src="@drawable/a" />
+
+            <TextView
+                android:id="@+id/tv_tutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Bienvido a la página de home"
+                android:layout_marginEnd="20dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Settings.SettingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dispositivos"
+                android:textSize="15sp"/>
+
+            <Spinner
+                android:id="@+id/sp_dispositivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/linea"
+            android:visibility="invisible"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vibracion"
+                android:textSize="15sp"/>
+
+            <Switch
+                android:id="@+id/swt_vibracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sonido"
+                android:textSize="15sp"/>
+
+            <Switch
+                android:id="@+id/swt_sonido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/linea"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/btn_lunes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="LUN"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_martes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="MAR"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_miercoles"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="Mie"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+
+            <Button
+                android:id="@+id/btn_jueves"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="JUE"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_viernes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="vie"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_sabado"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="sab"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+            <Button
+                android:id="@+id/btn_domingo"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="dom"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:textColor="@color/textito"/>
+
+
+        </LinearLayout>
+
+        <!-- empty space -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!--  section 1-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecciona una hora"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <NumberPicker
+                android:id="@+id/numPickerH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <NumberPicker
+                android:id="@+id/numPickerM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:divider="#ebebeb" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_registrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:text="@string/btn_hora"
+            android:textColor="@color/textito"
+            android:textSize="18sp"
+            android:background="@drawable/botones"
+            android:visibility="invisible"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:visibility="invisible"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_gotita_historic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/gota_historic"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/a" />
+
+        <TextView
+            android:id="@+id/tv_tutorial_historic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bienvido a la página de configuracion"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
