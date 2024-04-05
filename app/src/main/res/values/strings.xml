@@ -28,7 +28,6 @@
         <item>iPhone de Mendoza</item>
         <item>Smart Drink - 01 </item>
     </string-array>
-
     <string name="narracion_home_tuto">Visualiza información acerca del consumo de agua.</string>
     <string name="narracion_home_tuto1">En esta sección, podrás observar el registro actualizado de tu consumo de agua durante el transcurso del día.</string>
     <string name="narracion_home_tuto2">Rastrear tu progreso hacia el objetivo de hidratación diario al alcanzar el 100%.</string>
