@@ -1,13 +1,16 @@
 package com.example.smart_drinking;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -49,6 +52,16 @@ public class ViewPagerAdapter extends PagerAdapter{
                 break;
             case 1:
                 view = layoutInflater.inflate(R.layout.fragment_home, container, false);
+
+                LinearLayout layout_home_tutorial = view.findViewById(R.id.layout_home_tutorial);
+
+                layout_home_tutorial.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(context, "Toco", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 break;
             case 2:
                 view = layoutInflater.inflate(R.layout.fragment_historic, container, false);
