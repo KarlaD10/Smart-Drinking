@@ -1,6 +1,8 @@
 package com.example.smart_drinking;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -21,6 +23,8 @@ public class NavigationHome extends AppCompatActivity {
     HomeFragment homeFragment = new HomeFragment();
     SettingFragment settingFragment = new SettingFragment();
     HistoricFragment historicFragment = new HistoricFragment();
+
+    private NetworkChangeReceiver networkChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,7 @@ public class NavigationHome extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         bottomNavigationView.setSelectedItemId(R.id.home);
+        networkChangeReceiver = new NetworkChangeReceiver();
 
         LinearLayout layout_gotita = findViewById(R.id.layout_gotita);
 
@@ -49,5 +54,18 @@ public class NavigationHome extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(networkChangeReceiver);
     }
 }

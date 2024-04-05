@@ -210,8 +210,8 @@ public class SettingFragment extends Fragment {
         btn_domingo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeNotification();
-//                toggleSelection(btn_domingo, "Domingo");
+//                makeNotification();
+                toggleSelection(btn_domingo, "Domingo");
             }
         });
         btn_registrar.setOnClickListener(new View.OnClickListener() {
