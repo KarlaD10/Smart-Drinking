@@ -121,7 +121,8 @@ public class HomeFragment extends Fragment {
 
                         long result = db.addRegistros(mensaje);
                         if(result != -1 ) {
-                            Toast.makeText(getActivity(), "Registro exitoso", Toast.LENGTH_SHORT).show();
+
+                            toastCaller.callToast(layout, getActivity().getApplicationContext(),"Registro exitoso");
                             et_registro.setText("");
 
                             int progeso = db.readProgreso();
