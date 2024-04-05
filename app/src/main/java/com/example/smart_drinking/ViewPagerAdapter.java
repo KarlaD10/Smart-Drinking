@@ -91,7 +91,7 @@ public class ViewPagerAdapter extends PagerAdapter{
                                 cont[0]++;
                                 break;
                             default:
-                                cont[0] =0;
+                                //cont[0] =0;
                                 break;
                         }
                     }
@@ -115,21 +115,21 @@ public class ViewPagerAdapter extends PagerAdapter{
                         switch (contHistoric[0]){
                             case 0:
                                 calendarView_tuto.setVisibility(View.VISIBLE);
-                                tv_tutorial_historic_tuto.setText(R.string.narracion_historic_tuto);
+                                tv_tutorial_historic_tuto.setText("Cuando haglas click en algún día, te mostrará el consumo que tuviste en esa fecha");
                                 contHistoric[0]++;
                                 break;
                             case 1:
                                 tv_consumoMensual_tuto.setVisibility(View.VISIBLE);
-                                tv_tutorial_historic_tuto.setText(R.string.narracion_historic_tuto1);
+                                tv_tutorial_historic_tuto.setText("Rastrea tu consumo mensual es este texto");
                                 contHistoric[0]++;
                                 break;
                             case 2:
                                 LinearLayout_tuto.setVisibility(View.VISIBLE);
-                                tv_tutorial_historic_tuto.setText(R.string.narracion_historic_tuto2);
+                                tv_tutorial_historic_tuto.setText("Y el semanal en este ");
                                 contHistoric[0]++;
                                 break;
                             default:
-                                contHistoric[0] =0;
+                                //contHistoric[0] =0;
                                 break;
                         }
                     }
@@ -164,7 +164,8 @@ public class ViewPagerAdapter extends PagerAdapter{
                                 tvConectarBluetooth_tuto.setVisibility(View.VISIBLE);
                                 layout_dispositivos.setVisibility(View.VISIBLE);
                                 view_first.setVisibility(View.VISIBLE);
-                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto);
+                                tv_tutorial_ajustes.setText("Conecta tu dispositivo Smart Drink para una mejor funcionalidad");
+
                                 contAjustes[0]++;
                                 break;
                             case 1:
@@ -172,24 +173,30 @@ public class ViewPagerAdapter extends PagerAdapter{
                                 layout_vibracion.setVisibility(View.VISIBLE);
                                 layout_sonido.setVisibility(View.VISIBLE);
                                 view_second.setVisibility(View.VISIBLE);
-                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto1);
+                                tv_tutorial_ajustes.setText("Modifica la forma en la que quieres que se presenten los recordatorios");
+
                                 contAjustes[0]++;
                                 break;
                             case 2:
                                 tv_registrar.setVisibility(View.VISIBLE);
                                 dias_semanales.setVisibility(View.VISIBLE);
-                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto2);
+                                tv_tutorial_ajustes.setText("Selecciona los días específicos para recordarte el tomar agua");
+
                                 contAjustes[0]++;
                                 break;
                             case 3:
                                 layout_hora_message.setVisibility(View.VISIBLE);
                                 layout_seleccion_hora.setVisibility(View.VISIBLE);
-                                btn_registrar.setVisibility(View.VISIBLE);
-                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto3);
+                                tv_tutorial_ajustes.setText("Selecciona las horas específicas para recordarte el tomar agua ");
                                 contAjustes[0]++;
                                 break;
+                            case  4:
+                                tv_tutorial_ajustes.setText("Finalmente podrás registrar esa configuración de recordatorio ");
+                                btn_registrar.setVisibility(View.VISIBLE);
+
+                                contAjustes[0]++;
                             default:
-                                contAjustes[0] =0;
+                                //contAjustes[0] =0;
                                 break;
                         }
                     }

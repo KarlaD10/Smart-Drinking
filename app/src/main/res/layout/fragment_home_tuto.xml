@@ -20,10 +20,10 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Hola tonoto, vas muy \n bien tomando awa"
+            android:text="El agua es vida, toma agua, cuida tu vida."
             android:textAlignment="center"
-            android:textSize="23sp"
-            android:visibility="gone"/>
+            android:textSize="16sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textoProgreso_tuto"
@@ -31,17 +31,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="Aqui va un mensaje para el tonoto sobre el resumen que tiene arriba"
+            android:text="Llevas 1.5 litros de 2 de tu meta diaria"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:visibility="gone"/>
+            android:textSize="14sp"
+            android:visibility="gone" />
 
         <cjh.WaveProgressBarlibrary.WaveProgressBar
             android:id="@+id/waveprogressbar_tuto"
-            android:layout_width="250dp"
-            android:layout_height="230dp"
+            android:layout_width="220dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
+            android:visibility="gone"
             app:arc_color="@color/textito"
             app:behind_wave_color="#01A1D6"
             app:cavans_bg="@color/botones"
@@ -49,8 +50,7 @@
             app:progress="50"
             app:shape="circle"
             app:text_color="@color/black"
-            app:text_size="50sp"
-            android:visibility="gone"/>
+            app:text_size="50sp" />
 
         <LinearLayout
             android:id="@+id/layout_registro_tuto"
