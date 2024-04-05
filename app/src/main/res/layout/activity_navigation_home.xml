@@ -11,8 +11,9 @@
         android:id="@+id/layout_gotita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/gota"
@@ -23,28 +24,30 @@
         <TextView
             android:id="@+id/tv_tutorial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="303dp"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:textColor="@color/black"
             android:text="¡Bienvenido a nuestra aplicación!
             Explora las opciones a continuación para navegar fácilmente. \n\n
 
       1. [Progreso] - Aqui podrás ver tu progreso diario.\n
       2. [Histórico] -Aqui podrás ver el histórico de tus consumos.\n
       3. [Ajustes] - Personaliza tu experiencia según tus preferencias."
+            android:textAlignment="center"
 
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
     </LinearLayout>
 
 
     <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container"
-        android:layout_above="@id/bottom_navigation"/>
+        android:layout_above="@id/bottom_navigation"
+        android:textAlignment="center" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

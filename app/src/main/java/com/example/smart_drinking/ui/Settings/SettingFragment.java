@@ -22,15 +22,19 @@ import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.NumberPicker;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.smart_drinking.DataBase.DataHelper;
 import com.example.smart_drinking.MainActivity;
 import com.example.smart_drinking.R;
+import com.example.smart_drinking.ToastCaller;
 import com.example.smart_drinking.recyclerView.RM_RecyclerViewAdapter;
 import com.example.smart_drinking.recyclerView.RemindersModel;
 
@@ -45,6 +49,10 @@ public class SettingFragment extends Fragment {
     Switch swt_sonido, swt_vibracion;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    SharedPreferences.Editor editorForDevices;
+
+    SharedPreferences spForDevices;
+    ToastCaller toastCaller = new ToastCaller();
     ArrayList<String> diasSeleccionados = new ArrayList<>();
     ArrayList<Button> botonesSeleccionados = new ArrayList<>();
     Button btn_lunes, btn_martes, btn_miercoles, btn_jueves, btn_viernes, btn_sabado, btn_domingo, btn_registrar;
@@ -53,7 +61,7 @@ public class SettingFragment extends Fragment {
     DataHelper db;
     RM_RecyclerViewAdapter adapter;
 
-
+    private Spinner spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,8 +88,43 @@ public class SettingFragment extends Fragment {
         btn_domingo = view.findViewById(R.id.btn_domingo);
         btn_registrar = view.findViewById(R.id.btn_registrar);
         numPickerH = view.findViewById(R.id.numPickerH);
-        numPickerM  = view.findViewById(R.id.numPickerM);
+        numPickerM = view.findViewById(R.id.numPickerM);
         mp = MediaPlayer.create(getActivity(), R.raw.notificacion);
+
+
+        LayoutInflater inflaterr = getLayoutInflater();
+        View layout = inflaterr.inflate(R.layout.custom_toast, (ViewGroup) view.findViewById(R.id.toast_id));
+
+
+        spinner = view.findViewById(R.id.sp_dispositivos);
+
+        ArrayAdapter<CharSequence> adapta = ArrayAdapter.createFromResource(getContext(), R.array.dispositivos, android.R.layout.simple_spinner_item);
+        adapta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapta);
+        spinner.setSelection(0);
+        spForDevices = getActivity().getSharedPreferences("devices", getActivity().MODE_PRIVATE);
+        editorForDevices = spForDevices.edit();
+        //AQUI ESTA EL DESMADRE
+        //spinner.setSe
+        editorForDevices.putString("seleccion","---");
+        editorForDevices.apply();
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String val_array_dipositivos = getValueForSpinner(position);
+               // editorForDevices.putString("sonido",val_array_dipositivos);
+                //editorForDevices.apply();
+                //spinner.setSelection(i);
+                toastCaller.callToast(layout, getActivity().getApplicationContext(),val_array_dipositivos);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
 
         db = new DataHelper(getActivity());
         initAllPicker();
@@ -273,6 +316,20 @@ public class SettingFragment extends Fragment {
         }
     }
 
+    protected  String getValueForSpinner(int i){
+
+        String temp = "";
+        if (i != 0)
+           temp = "Conectado a ";
+        switch(i){
+            case 1: return temp + "iPhone Daniel";
+            case 2: return temp +"iPhone Karla";
+            case 3: return temp +"iPhone Marcelo";
+            case 4: return temp +"iPhone Mendoza";
+            case 5: return temp +"Smart Drink - 01";
+            default: return "No se ha seleccionado ningún dispositivo";
+        }
+    }
     private void setUpReminderModels(){
         JSONArray jsonArray = db.getDataRecordatorio();
         reminderModels.clear();
