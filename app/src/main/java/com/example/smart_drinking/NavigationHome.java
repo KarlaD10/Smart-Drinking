@@ -33,7 +33,7 @@ public class NavigationHome extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         bottomNavigationView.setSelectedItemId(R.id.home);
-        networkChangeReceiver = new NetworkChangeReceiver();
+//        networkChangeReceiver = new NetworkChangeReceiver();
 
         LinearLayout layout_gotita = findViewById(R.id.layout_gotita);
 
