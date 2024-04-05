@@ -56,16 +56,16 @@ public class NavigationHome extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-
-        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        unregisterReceiver(networkChangeReceiver);
-    }
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//
+//        registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        unregisterReceiver(networkChangeReceiver);
+//    }
 }

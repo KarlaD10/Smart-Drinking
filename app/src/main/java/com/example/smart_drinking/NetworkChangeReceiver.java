@@ -80,7 +80,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         }
     }
 
-
     public void makeNotification(){
         String channelID = "CHANNEL_ID_NOTIFICATION";
         NotificationCompat.Builder builder =
@@ -93,11 +92,10 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         Intent intent = new Intent(con, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(con, 0, intent, PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(con, 0, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(pendingIntent);
 
         NotificationManager notificationManager = (NotificationManager) con.getSystemService(Context.NOTIFICATION_SERVICE);
-
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelID);
@@ -111,7 +109,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             }
         }
         notificationManager.notify(0, builder.build());
-
     }
 
 }
