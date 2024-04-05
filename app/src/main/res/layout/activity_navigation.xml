@@ -43,7 +43,7 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="invisible"/>
+        android:visibility="gone"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -51,8 +51,9 @@
         android:id="@+id/btn_next"
         android:background="@drawable/botones"
         android:textColor="@color/textito"
-        android:text="Next"
+        android:text="Siguiente"
         android:textSize="18sp"
+        android:padding="8dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
