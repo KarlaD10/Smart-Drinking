@@ -23,7 +23,7 @@ public class ToastCaller {
         tostada.setDuration(Toast.LENGTH_LONG);
         tostada.setView(layout);
         tv_toast.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        tv_toast.setTextSize(25);
+        tv_toast.setTextSize(19);
         tv_toast.setText(string);
         tostada.show();
     }

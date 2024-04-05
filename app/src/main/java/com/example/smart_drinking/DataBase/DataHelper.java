@@ -164,10 +164,11 @@ public class DataHelper extends SQLiteOpenHelper {
     }
 
 
-    public JSONArray getDataRecordatorio(){
+    public JSONArray getDataRecordatorio() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor_tipo = db.rawQuery("SELECT dia, strftime('%H:%M', printf('%02d', hora) || ':' || printf('%02d', minuto)) AS hora_formada " +
                 "FROM recordatorios", null);
+
 
         JSONArray jsonArray = new JSONArray();
         if (cursor_tipo != null){
