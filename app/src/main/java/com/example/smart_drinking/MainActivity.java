@@ -2,7 +2,9 @@ package com.example.smart_drinking;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -10,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.smart_drinking.DataBase.DataHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
     Animation topAnim, bottomAnim;
     ImageView image;
     TextView logo, slogan;
+
+    DataHelper db;
+    SQLiteDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +74,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationStart(Animation animation) {
                 // Acciones al iniciar la animación, si es necesario
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                // Este código se ejecuta después de que la animación haya terminado
                 sharedPreferences = getSharedPreferences("mensajes", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -85,8 +88,21 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString(key9,nueve);
                 editor.putString(key10,diez);
                 editor.apply();
-                Intent intent = new Intent(MainActivity.this, Navigation.class);
-                startActivity(intent);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                // Este código se ejecuta después de que la animación haya terminado
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                boolean isFirstRun = prefs.getBoolean("firstrun", true);
+                if (isFirstRun) {
+                    Intent intent = new Intent(MainActivity.this, Navigation.class);
+                    startActivity(intent);
+                    prefs.edit().putBoolean("firstrun", false).apply();
+                }else{
+                    Intent intent = new Intent(MainActivity.this, NavigationHome.class);
+                    startActivity(intent);
+                }
                 finish(); // Finaliza la actividad actual
             }
 

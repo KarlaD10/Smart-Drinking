@@ -18,8 +18,8 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="-20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight=".3"
             android:text="Hola tonoto, vas muy bien tomando awa"
             android:textAlignment="center"
@@ -41,7 +41,6 @@
             android:layout_width="250dp"
             android:layout_height="230dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
             app:arc_color="@color/textito"
             app:behind_wave_color="#01A1D6"
             app:cavans_bg="@color/botones"
@@ -49,13 +48,12 @@
             app:progress="50"
             app:shape="circle"
             app:text_color="@color/black"
-            app:text_size="50sp"
-            tools:layout_marginTop="-40dp"/>
+            app:text_size="50sp"/>
 
         <LinearLayout
             android:id="@+id/layout_registro"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight=".3"
             android:layout_marginTop="30dp"

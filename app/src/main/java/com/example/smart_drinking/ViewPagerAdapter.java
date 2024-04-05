@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,7 +48,7 @@ public class ViewPagerAdapter extends PagerAdapter{
 
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = null;
-        TextView tv_tutorial_home_tuto;
+
 
         switch(position) {
             case 0:
@@ -63,7 +64,7 @@ public class ViewPagerAdapter extends PagerAdapter{
                 TextView textoProgreso_tuto = view.findViewById(R.id.textoProgreso_tuto);
                 WaveProgressBar waveprogressbar_tuto = view.findViewById(R.id.waveprogressbar_tuto);
                 LinearLayout layout_registro_tuto = view.findViewById(R.id.layout_registro_tuto);
-                tv_tutorial_home_tuto = view.findViewById(R.id.tv_tutorial_home_tuto);
+                TextView tv_tutorial_home_tuto = view.findViewById(R.id.tv_tutorial_home_tuto);
 
                 layout_home_tutorial.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -92,7 +93,6 @@ public class ViewPagerAdapter extends PagerAdapter{
                             default:
                                 cont[0] =0;
                                 break;
-
                         }
                     }
                 });
@@ -105,34 +105,98 @@ public class ViewPagerAdapter extends PagerAdapter{
                 CalendarView calendarView_tuto = view.findViewById(R.id.calendarView_tuto);
                 TextView tv_consumoMensual_tuto = view.findViewById(R.id.tv_consumoMensual_tuto);
                 LinearLayout LinearLayout_tuto = view.findViewById(R.id.LinearLayout_tuto);
-                tv_tutorial_home_tuto = view.findViewById(R.id.tv_tutorial_historic);
+                LinearLayout layout_historic_tutorial = view.findViewById(R.id.layout_historic_tutorial);
+                TextView tv_tutorial_historic_tuto = view.findViewById(R.id.tv_tutorial_historic);
 
-                switch (contHistoric[0]){
-                    case 0:
-                        calendarView_tuto.setVisibility(View.VISIBLE);
-                        tv_tutorial_home_tuto.setText(R.string.narracion_historic_tuto);
-                        contHistoric[0]++;
-                        break;
-                    case 1:
-                        tv_consumoMensual_tuto.setVisibility(View.VISIBLE);
-                        tv_tutorial_home_tuto.setText(R.string.narracion_historic_tuto1);
-                        contHistoric[0]++;
-                        break;
-                    case 2:
-                        LinearLayout_tuto.setVisibility(View.VISIBLE);
-                        tv_tutorial_home_tuto.setText(R.string.narracion_historic_tuto2);
-                        contHistoric[0]++;
-                        break;
-                    default:
-                        contHistoric[0] =0;
-                        break;
-                }
+
+                layout_historic_tutorial.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        switch (contHistoric[0]){
+                            case 0:
+                                calendarView_tuto.setVisibility(View.VISIBLE);
+                                tv_tutorial_historic_tuto.setText(R.string.narracion_historic_tuto);
+                                contHistoric[0]++;
+                                break;
+                            case 1:
+                                tv_consumoMensual_tuto.setVisibility(View.VISIBLE);
+                                tv_tutorial_historic_tuto.setText(R.string.narracion_historic_tuto1);
+                                contHistoric[0]++;
+                                break;
+                            case 2:
+                                LinearLayout_tuto.setVisibility(View.VISIBLE);
+                                tv_tutorial_historic_tuto.setText(R.string.narracion_historic_tuto2);
+                                contHistoric[0]++;
+                                break;
+                            default:
+                                contHistoric[0] =0;
+                                break;
+                        }
+                    }
+                });
                 break;
+
             case 3:
-                view = layoutInflater.inflate(R.layout.fragment_setting, container, false);
-                break;
-        }
+                final int[] contAjustes = {0};
+                view = layoutInflater.inflate(R.layout.fragment_setting_tuto, container, false);
 
+                TextView tvConectarBluetooth_tuto = view.findViewById(R.id.tvConectarBluetooth_tuto);
+                LinearLayout layout_dispositivos = view.findViewById(R.id.layout_dispositivos);
+                View view_first = view.findViewById(R.id.view_first);
+                TextView tv_configura_aviso = view.findViewById(R.id.tv_configura_aviso);
+                LinearLayout layout_vibracion = view.findViewById(R.id.layout_vibracion);
+                LinearLayout layout_sonido = view.findViewById(R.id.layout_sonido);
+                View view_second = view.findViewById(R.id.view_second);
+                TextView tv_registrar = view.findViewById(R.id.tv_registrar);
+                LinearLayout dias_semanales = view.findViewById(R.id.dias_semanales);
+                LinearLayout layout_hora_message = view.findViewById(R.id.layout_hora_message);
+                LinearLayout layout_seleccion_hora = view.findViewById(R.id.layout_seleccion_hora);
+                LinearLayout layout_settings_tuto = view.findViewById(R.id.layout_settings_tuto);
+                Button btn_registrar = view.findViewById(R.id.btn_registrar);
+                TextView tv_tutorial_ajustes = view.findViewById(R.id.tv_tutorial_ajustes);
+
+
+                layout_settings_tuto.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        switch (contAjustes[0]){
+                            case 0:
+                                tvConectarBluetooth_tuto.setVisibility(View.VISIBLE);
+                                layout_dispositivos.setVisibility(View.VISIBLE);
+                                view_first.setVisibility(View.VISIBLE);
+                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto);
+                                contAjustes[0]++;
+                                break;
+                            case 1:
+                                tv_configura_aviso.setVisibility(View.VISIBLE);
+                                layout_vibracion.setVisibility(View.VISIBLE);
+                                layout_sonido.setVisibility(View.VISIBLE);
+                                view_second.setVisibility(View.VISIBLE);
+                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto1);
+                                contAjustes[0]++;
+                                break;
+                            case 2:
+                                tv_registrar.setVisibility(View.VISIBLE);
+                                dias_semanales.setVisibility(View.VISIBLE);
+                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto2);
+                                contAjustes[0]++;
+                                break;
+                            case 3:
+                                layout_hora_message.setVisibility(View.VISIBLE);
+                                layout_seleccion_hora.setVisibility(View.VISIBLE);
+                                btn_registrar.setVisibility(View.VISIBLE);
+                                tv_tutorial_ajustes.setText(R.string.narracion_home_tuto3);
+                                contAjustes[0]++;
+                                break;
+                            default:
+                                contAjustes[0] =0;
+                                break;
+                        }
+                    }
+                });
+                break;
+
+        }
         // Agregar la vista al contenedor
         container.addView(view);
         return view;

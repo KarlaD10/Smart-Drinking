@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Settings.SettingFragment">
+
+    <LinearLayout
+        android:id="@+id/layout_settings_tuto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvConectarBluetooth_tuto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Conectar Bluetooth"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/layout_dispositivos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/dispositivos"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/sp_dispositivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_first"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/linea"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/tv_configura_aviso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Configurar estilo recordatorio"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/layout_vibracion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vibracion"
+                android:textSize="15sp" />
+
+            <Switch
+                android:id="@+id/swt_vibracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_sonido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sonido"
+                android:textSize="15sp" />
+
+            <Switch
+                android:id="@+id/swt_sonido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/view_second"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/linea"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_registrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Registrar recordatorio"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/dias_semanales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btn_lunes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@drawable/botones"
+                android:text="LUN"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_martes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:text="MAR"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_miercoles"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:text="Mie"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+
+            <Button
+                android:id="@+id/btn_jueves"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:text="JUE"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_viernes"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:text="vie"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_sabado"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:text="sab"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_domingo"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/botones"
+                android:text="dom"
+                android:textColor="@color/textito"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <!-- empty space -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!--  section 1-->
+        <LinearLayout
+            android:id="@+id/layout_hora_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecciona una hora"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_seleccion_hora"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <NumberPicker
+                android:id="@+id/numPickerH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <NumberPicker
+                android:id="@+id/numPickerM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:divider="#ebebeb" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_registrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/botones"
+            android:padding="10dp"
+            android:text="@string/btn_hora"
+            android:textAllCaps="false"
+            android:textColor="@color/textito"
+            android:textSize="18sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_almacen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Registros almacenados"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="550dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/a" />
+
+        <TextView
+            android:id="@+id/tv_tutorial_ajustes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="Bienvenido a la página de ajustes"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
