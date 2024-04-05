@@ -51,7 +51,7 @@ public class ViewPagerAdapter extends PagerAdapter{
 
                 break;
             case 1:
-                view = layoutInflater.inflate(R.layout.fragment_home, container, false);
+                view = layoutInflater.inflate(R.layout.fragment_home_tuto, container, false);
 
                 LinearLayout layout_home_tutorial = view.findViewById(R.id.layout_home_tutorial);
 

@@ -2,6 +2,8 @@ package com.example.smart_drinking;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +29,10 @@ public class NavigationHome extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         bottomNavigationView.setSelectedItemId(R.id.home);
+
+        LinearLayout layout_gotita = findViewById(R.id.layout_gotita);
+
+        layout_gotita.setVisibility(View.GONE);
 
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
